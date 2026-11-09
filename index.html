@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0b6b3a" />
+<title>BBICT I — Orodha ya Wanafunzi na Taarifa ya Vikundi</title>
+<style>
+  :root{
+    --green:#0b6b3a; --green2:#12864a; --ink:#14231b; --muted:#6b7d72;
+    --line:#e2e8e4; --bg:#f4f7f5; --amber:#fff6dc; --amberb:#f0cf85;
+    --amberl:#d99b1a; --amberink:#6b4a00;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;-webkit-text-size-adjust:100%}
+  header{background:linear-gradient(135deg,#0a5f34,#12864a);color:#fff;padding:34px 18px 30px;text-align:center}
+  .badge{display:inline-block;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;
+    background:rgba(255,255,255,.16);padding:7px 15px;border-radius:999px;margin-bottom:13px;font-weight:600}
+  header h1{margin:0;font-size:clamp(25px,6vw,37px);line-height:1.2;font-weight:800}
+  header .sub{opacity:.92;margin-top:10px;font-size:17px}
+  main{max-width:1000px;margin:0 auto;padding:20px 14px 40px}
+  .notice{background:var(--amber);border:1px solid var(--amberb);border-left:7px solid var(--amberl);
+    border-radius:14px;padding:20px 22px;margin:6px 0 24px;box-shadow:0 3px 12px rgba(0,0,0,.05)}
+  .notice h2{margin:0 0 12px;font-size:19px;color:var(--amberink);text-transform:uppercase;letter-spacing:.05em}
+  .notice p{margin:10px 0;font-size:18px}
+  .notice .date{background:#fff;padding:2px 9px;border-radius:6px;color:#8a5a00;font-weight:700;white-space:nowrap}
+  .notice ul{margin:10px 0 4px;padding-left:24px;font-size:17px}
+  .notice li{margin:6px 0}
+  .notice .en{color:#6b5a33;font-size:15.5px;margin-top:14px;border-top:1px dashed #e5cd92;padding-top:12px}
+  .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
+  #q{flex:1 1 260px;padding:14px 16px;border:1px solid #cfdcd4;border-radius:10px;font-size:17px;
+    outline:none;background:#fff;color:var(--ink)}
+  #q:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(18,134,74,.15)}
+  .count{font-size:15.5px;color:var(--muted);white-space:nowrap}
+  .tablewrap{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:auto;
+    max-height:74vh;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+  table{border-collapse:collapse;width:100%;font-size:16px;min-width:680px}
+  thead th{position:sticky;top:0;background:var(--green);color:#fff;text-align:left;padding:14px;
+    font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;z-index:2;white-space:nowrap}
+  thead th.n{text-align:right}
+  tbody td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tbody tr:nth-child(even){background:#f7faf8}
+  tbody tr:hover{background:#eef6f1}
+  td.num{color:var(--muted);width:50px;text-align:right;font-variant-numeric:tabular-nums}
+  td.name{font-weight:600}
+  td.reg{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;white-space:nowrap}
+  td.phone{white-space:nowrap}
+  td.phone a{color:var(--green);text-decoration:none;font-variant-numeric:tabular-nums;font-weight:600}
+  .muted{color:#9aa8a0}
+  .empty{padding:24px;text-align:center;color:var(--muted);display:none;font-size:16px}
+  footer{text-align:center;color:var(--muted);font-size:15px;padding:20px 14px 48px}
+  footer strong{color:var(--green)}
+  @media (max-width:560px){
+    .count{width:100%}
+    td.reg{white-space:normal;word-break:break-all}
+    thead th,tbody td{padding:9px 9px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="badge">Moshi Co-operative University</div>
+  <h1>BBICT I &mdash; Orodha ya Wanafunzi</h1>
+  <div class="sub">First Semester 2026/2027 &middot; Taarifa ya Upangaji wa Vikundi</div>
+</header>
+
+<main>
+  <section class="notice" role="note">
+    <h2>&#128227; Taarifa Muhimu kwa Wanafunzi wa BBICT I</h2>
+    <p>Upangaji wa vikundi (<strong>Groups</strong>) utaanza <strong>kesho, Jumanne 10/11/2026</strong>,
+       na utamalizika <span class="date">Jumatano, 11/11/2026</span>.</p>
+    <ul>
+      <li>Tafadhali <strong>angalia jina lako</strong> kwenye orodha iliyo hapa chini.</li>
+      <li>Kama jina lako <strong>halipo</strong> au taarifa zako si sahihi, wasiliana na
+          <strong>Class Representative</strong> ukitoa jina kamili, namba ya usajili (Reg. No.) na namba ya simu.</li>
+      <li>Uundaji wa vikundi utaanza <strong>haraka iwezekanavyo</strong>.</li>
+    </ul>
+    <div class="en">
+      <strong>English:</strong> Group arrangement for BBICT I will start
+      <strong>tomorrow, Tuesday 10/11/2026</strong>, and end on
+      <strong>Wednesday, 11/11/2026</strong>. Please check for your name in the list below.
+      If your name is missing or your details are incorrect, contact the Class Representative with your
+      full name, registration number and phone number. Group formation starts as soon as possible.
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="Tafuta jina, usajili au simu&hellip;" aria-label="Search students" />
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="n">S/N</th>
+          <th>Jina Kamili (Name)</th>
+          <th>Namba ya Usajili (Reg. No.)</th>
+          <th>Namba ya Simu (Phone)</th>
+        </tr>
+      </thead>
+      <tbody id="body">
+<tr data-s="nafisa rashid selemani mocu/bbict/1548/26 +255725744255"><td class="num">1</td><td class="name">Nafisa Rashid Selemani</td><td class="reg">MoCU/BBICT/1548/26</td><td class="phone"><a href="tel:+255725744255">+255 725 744 255</a></td></tr>
+<tr data-s="delphine deogratius mathias mocu/bbict/1589/26 +255797567795"><td class="num">2</td><td class="name">Delphine Deogratius Mathias</td><td class="reg">MoCU/BBICT/1589/26</td><td class="phone"><a href="tel:+255797567795">+255 797 567 795</a></td></tr>
+<tr data-s="tumaini gasper lema mocu/bbict/1544/26 +255616922690"><td class="num">3</td><td class="name">Tumaini Gasper Lema</td><td class="reg">MoCU/BBICT/1544/26</td><td class="phone"><a href="tel:+255616922690">+255 616 922 690</a></td></tr>
+<tr data-s="esther nicolaus okinyi mocu/bbict/1471/26 +255668464316"><td class="num">4</td><td class="name">Esther Nicolaus Okinyi</td><td class="reg">MoCU/BBICT/1471/26</td><td class="phone"><a href="tel:+255668464316">+255 668 464 316</a></td></tr>
+<tr data-s="hamisi hassani salumu mocu/bbict/1426/26 +255656800778"><td class="num">5</td><td class="name">Hamisi Hassani Salumu</td><td class="reg">MoCU/BBICT/1426/26</td><td class="phone"><a href="tel:+255656800778">+255 656 800 778</a></td></tr>
+<tr data-s="nadia salum tuku mocu/bbict/1605/26 +255777245133"><td class="num">6</td><td class="name">Nadia Salum Tuku</td><td class="reg">MoCU/BBICT/1605/26</td><td class="phone"><a href="tel:+255777245133">+255 777 245 133</a></td></tr>
+<tr data-s="alphonce hamis petro mocu/bbict/1410/26 +255612335787"><td class="num">7</td><td class="name">Alphonce Hamis Petro</td><td class="reg">MoCU/BBICT/1410/26</td><td class="phone"><a href="tel:+255612335787">+255 612 335 787</a></td></tr>
+<tr data-s="leah leonard ipwaga mocu/bbict/1477/26 +255775557868"><td class="num">8</td><td class="name">Leah Leonard Ipwaga</td><td class="reg">MoCU/BBICT/1477/26</td><td class="phone"><a href="tel:+255775557868">+255 775 557 868</a></td></tr>
+<tr data-s="debora amos mbalanga mocu/bbict/1974/26 +255624204144"><td class="num">9</td><td class="name">Debora Amos Mbalanga</td><td class="reg">MoCU/BBICT/1974/26</td><td class="phone"><a href="tel:+255624204144">+255 624 204 144</a></td></tr>
+<tr data-s="dorcas victor elimsu mocu/bbict/1417/26 +255671966946"><td class="num">10</td><td class="name">Dorcas Victor Elimsu</td><td class="reg">MoCU/BBICT/1417/26</td><td class="phone"><a href="tel:+255671966946">+255 671 966 946</a></td></tr>
+<tr data-s="joyce joseph john mocu/bbict/1486/26 +255770079997"><td class="num">11</td><td class="name">Joyce Joseph John</td><td class="reg">MoCU/BBICT/1486/26</td><td class="phone"><a href="tel:+255770079997">+255 770 079 997</a></td></tr>
+<tr data-s="ester jeremiah mtagwa mocu/bbict/1593/26 +255740724465"><td class="num">12</td><td class="name">Ester Jeremiah Mtagwa</td><td class="reg">MoCU/BBICT/1593/26</td><td class="phone"><a href="tel:+255740724465">+255 740 724 465</a></td></tr>
+<tr data-s="leonard fokas macha mocu/bbict/1439/26 +255747529738"><td class="num">13</td><td class="name">Leonard Fokas Macha</td><td class="reg">MoCU/BBICT/1439/26</td><td class="phone"><a href="tel:+255747529738">+255 747 529 738</a></td></tr>
+<tr data-s="moses ayubu hassan mocu/bbict/1387/26 +255637258781"><td class="num">14</td><td class="name">Moses Ayubu Hassan</td><td class="reg">MoCU/BBICT/1387/26</td><td class="phone"><a href="tel:+255637258781">+255 637 258 781</a></td></tr>
+<tr data-s="joan john barahemana mocu/bbict/1591/26 +255705655988"><td class="num">15</td><td class="name">Joan John Barahemana</td><td class="reg">MoCU/BBICT/1591/26</td><td class="phone"><a href="tel:+255705655988">+255 705 655 988</a></td></tr>
+<tr data-s="salvatory david mwankotw mocu/bbict/1510/26 +255740777507"><td class="num">16</td><td class="name">Salvatory David Mwankotw</td><td class="reg">MoCU/BBICT/1510/26</td><td class="phone"><a href="tel:+255740777507">+255 740 777 507</a></td></tr>
+<tr data-s="shadrack castory tweve mocu/bbict/1455/26 +255723422072"><td class="num">17</td><td class="name">Shadrack Castory Tweve</td><td class="reg">MoCU/BBICT/1455/26</td><td class="phone"><a href="tel:+255723422072">+255 723 422 072</a></td></tr>
+<tr data-s="dominick aswile mwalisu mocu/bbict/1418/26 +255798223862"><td class="num">18</td><td class="name">Dominick Aswile Mwalisu</td><td class="reg">MoCU/BBICT/1418/26</td><td class="phone"><a href="tel:+255798223862">+255 798 223 862</a></td></tr>
+<tr data-s="abimeck kagemulo daniel mocu/bbict/1522/26 +255769880833"><td class="num">19</td><td class="name">Abimeck Kagemulo Daniel</td><td class="reg">MoCU/BBICT/1522/26</td><td class="phone"><a href="tel:+255769880833">+255 769 880 833</a></td></tr>
+<tr data-s="sidofy samwel anthony mocu/bbict/1457/26 +255627741328"><td class="num">20</td><td class="name">Sidofy Samwel Anthony</td><td class="reg">MoCU/BBICT/1457/26</td><td class="phone"><a href="tel:+255627741328">+255 627 741 328</a></td></tr>
+<tr data-s="glory simoni mtila mocu/bbict/1472/26 +255783852870"><td class="num">21</td><td class="name">Glory Simoni Mtila</td><td class="reg">MoCU/BBICT/1472/26</td><td class="phone"><a href="tel:+255783852870">+255 783 852 870</a></td></tr>
+<tr data-s="junia yustas john mocu/bbict/1502/26 +255722831451"><td class="num">22</td><td class="name">Junia Yustas John</td><td class="reg">MoCU/BBICT/1502/26</td><td class="phone"><a href="tel:+255722831451">+255 722 831 451</a></td></tr>
+<tr data-s="julieth ibrahim shambe mocu/bbict/1435/26 +255707697946"><td class="num">23</td><td class="name">Julieth Ibrahim Shambe</td><td class="reg">MoCU/BBICT/1435/26</td><td class="phone"><a href="tel:+255707697946">+255 707 697 946</a></td></tr>
+<tr data-s="fredrick simion thomas mocu/bbict/1424/26 +255694787156"><td class="num">24</td><td class="name">Fredrick Simion Thomas</td><td class="reg">MoCU/BBICT/1424/26</td><td class="phone"><a href="tel:+255694787156">+255 694 787 156</a></td></tr>
+<tr data-s="amos yusuph ngaya mocu/bbict/1523/26 +255755934941"><td class="num">25</td><td class="name">Amos Yusuph Ngaya</td><td class="reg">MoCU/BBICT/1523/26</td><td class="phone"><a href="tel:+255755934941">+255 755 934 941</a></td></tr>
+<tr data-s="jampani mabuga jampani mocu/bbict/1473/26 +255796936599"><td class="num">26</td><td class="name">Jampani Mabuga Jampani</td><td class="reg">MoCU/BBICT/1473/26</td><td class="phone"><a href="tel:+255796936599">+255 796 936 599</a></td></tr>
+<tr data-s="lameck mwakalinga pensli mocu/bbict/2607/26 +255792049160"><td class="num">27</td><td class="name">Lameck Mwakalinga Pensli</td><td class="reg">MoCU/BBICT/2607/26</td><td class="phone"><a href="tel:+255792049160">+255 792 049 160</a></td></tr>
+<tr data-s="isaka leonard mlay mocu/bbict/1532/26 +255637476773"><td class="num">28</td><td class="name">Isaka Leonard Mlay</td><td class="reg">MoCU/BBICT/1532/26</td><td class="phone"><a href="tel:+255637476773">+255 637 476 773</a></td></tr>
+<tr data-s="abdul nassor masaka mocu/bbict/1406/26 +255708339667"><td class="num">29</td><td class="name">Abdul Nassor Masaka</td><td class="reg">MoCU/BBICT/1406/26</td><td class="phone"><a href="tel:+255708339667">+255 708 339 667</a></td></tr>
+<tr data-s="frank sylivester manyama mocu/bbict/1464/26 +255626101904"><td class="num">30</td><td class="name">Frank Sylivester Manyama</td><td class="reg">MoCU/BBICT/1464/26</td><td class="phone"><a href="tel:+255626101904">+255 626 101 904</a></td></tr>
+<tr data-s="naomi jonas kaaya mocu/bbict/1443/26 +255666872171"><td class="num">31</td><td class="name">Naomi Jonas Kaaya</td><td class="reg">MoCU/BBICT/1443/26</td><td class="phone"><a href="tel:+255666872171">+255 666 872 171</a></td></tr>
+<tr data-s="ibrahim juma athuman mocu/bbict/1489/26 +255710100146"><td class="num">32</td><td class="name">Ibrahim Juma Athuman</td><td class="reg">MoCU/BBICT/1489/26</td><td class="phone"><a href="tel:+255710100146">+255 710 100 146</a></td></tr>
+<tr data-s="priver vicent ndomba mocu/bbict/1560/26 +255750587974"><td class="num">33</td><td class="name">Priver Vicent Ndomba</td><td class="reg">MoCU/BBICT/1560/26</td><td class="phone"><a href="tel:+255750587974">+255 750 587 974</a></td></tr>
+<tr data-s="goodluck yuda tadei mocu/bbict/1519/26 +255667613777"><td class="num">34</td><td class="name">Goodluck Yuda Tadei</td><td class="reg">MoCU/BBICT/1519/26</td><td class="phone"><a href="tel:+255667613777">+255 667 613 777</a></td></tr>
+<tr data-s="salfius godfred mbanyi mocu/bbict/1556/26 +255634099737"><td class="num">35</td><td class="name">Salfius Godfred Mbanyi</td><td class="reg">MoCU/BBICT/1556/26</td><td class="phone"><a href="tel:+255634099737">+255 634 099 737</a></td></tr>
+<tr data-s="issa george jeremia mocu/bbict/1431/26 +255792724104"><td class="num">36</td><td class="name">Issa George Jeremia</td><td class="reg">MoCU/BBICT/1431/26</td><td class="phone"><a href="tel:+255792724104">+255 792 724 104</a></td></tr>
+<tr data-s="hendry thadeus assey mocu/bbict/1496/26 +255790003827"><td class="num">37</td><td class="name">Hendry Thadeus Assey</td><td class="reg">MoCU/BBICT/1496/26</td><td class="phone"><a href="tel:+255790003827">+255 790 003 827</a></td></tr>
+<tr data-s="angelina manumbu mfungo mocu/bbict/1564/26 +255624978552"><td class="num">38</td><td class="name">Angelina Manumbu Mfungo</td><td class="reg">MoCU/BBICT/1564/26</td><td class="phone"><a href="tel:+255624978552">+255 624 978 552</a></td></tr>
+<tr data-s="agness mathew massawe mocu/bbict/1585/26 +255627433384"><td class="num">39</td><td class="name">Agness Mathew Massawe</td><td class="reg">MoCU/BBICT/1585/26</td><td class="phone"><a href="tel:+255627433384">+255 627 433 384</a></td></tr>
+<tr data-s="mchunhuzi leonaldi elius mocu/bbict/1577/26 +255614397498"><td class="num">40</td><td class="name">Mchunhuzi Leonaldi Elius</td><td class="reg">MoCU/BBICT/1577/26</td><td class="phone"><a href="tel:+255614397498">+255 614 397 498</a></td></tr>
+<tr data-s="john robert bukelebe mocu/bbict/1563/26 +255685216704"><td class="num">41</td><td class="name">John Robert Bukelebe</td><td class="reg">MoCU/BBICT/1563/26</td><td class="phone"><a href="tel:+255685216704">+255 685 216 704</a></td></tr>
+<tr data-s="stella alex bopmu mocu/bbict/1509/26 +255678939381"><td class="num">42</td><td class="name">Stella Alex Bopmu</td><td class="reg">MoCU/BBICT/1509/26</td><td class="phone"><a href="tel:+255678939381">+255 678 939 381</a></td></tr>
+<tr data-s="loreen archibody salia mocu/bbict/1503/26 +255771566333"><td class="num">43</td><td class="name">Loreen Archibody Salia</td><td class="reg">MoCU/BBICT/1503/26</td><td class="phone"><a href="tel:+255771566333">+255 771 566 333</a></td></tr>
+<tr data-s="henry charles misheto  "><td class="num">44</td><td class="name">Henry Charles Misheto</td><td class="reg"><span class="muted">&mdash;</span></td><td class="phone"><span class="muted">&mdash;</span></td></tr>
+<tr data-s="swabrina juma mussa mocu/bbict/1458/26 +255758404332"><td class="num">45</td><td class="name">Swabrina Juma Mussa</td><td class="reg">MoCU/BBICT/1458/26</td><td class="phone"><a href="tel:+255758404332">+255 758 404 332</a></td></tr>
+<tr data-s="joan jacob jika mocu/bbict/1476/26 +255620643550"><td class="num">46</td><td class="name">Joan Jacob Jika</td><td class="reg">MoCU/BBICT/1476/26</td><td class="phone"><a href="tel:+255620643550">+255 620 643 550</a></td></tr>
+<tr data-s="iptysam ramadhan mussa mocu/bbict/1429/26 +255665243033"><td class="num">47</td><td class="name">Iptysam Ramadhan Mussa</td><td class="reg">MoCU/BBICT/1429/26</td><td class="phone"><a href="tel:+255665243033">+255 665 243 033</a></td></tr>
+<tr data-s="nosheen ruhulamin saiyed mocu/bbict/1597/26 +255699077247"><td class="num">48</td><td class="name">Nosheen Ruhulamin Saiyed</td><td class="reg">MoCU/BBICT/1597/26</td><td class="phone"><a href="tel:+255699077247">+255 699 077 247</a></td></tr>
+<tr data-s="ibrahimu mussa tawalemi mocu/bbict/1530/26 +255794107187"><td class="num">49</td><td class="name">Ibrahimu Mussa Tawalemi</td><td class="reg">MoCU/BBICT/1530/26</td><td class="phone"><a href="tel:+255794107187">+255 794 107 187</a></td></tr>
+<tr data-s="enock japheth mpunji mocu/bbict/1559/26 +255668333091"><td class="num">50</td><td class="name">Enock Japheth Mpunji</td><td class="reg">MoCU/BBICT/1559/26</td><td class="phone"><a href="tel:+255668333091">+255 668 333 091</a></td></tr>
+<tr data-s="elisha sifael mgeni mocu/bbict/1470/26 +255638137095"><td class="num">51</td><td class="name">Elisha Sifael Mgeni</td><td class="reg">MoCU/BBICT/1470/26</td><td class="phone"><a href="tel:+255638137095">+255 638 137 095</a></td></tr>
+<tr data-s="nathan roltha danda mocu/bbict/1500/26 +255610810008"><td class="num">52</td><td class="name">Nathan Roltha Danda</td><td class="reg">MoCU/BBICT/1500/26</td><td class="phone"><a href="tel:+255610810008">+255 610 810 008</a></td></tr>
+<tr data-s="paulo john paulo mocu/bbict/1448/26 +255723701964"><td class="num">53</td><td class="name">Paulo John Paulo</td><td class="reg">MoCU/BBICT/1448/26</td><td class="phone"><a href="tel:+255723701964">+255 723 701 964</a></td></tr>
+<tr data-s="mabula mathias philipo mocu/bbict/1569/26 +255674423187"><td class="num">54</td><td class="name">Mabula Mathias Philipo</td><td class="reg">MoCU/BBICT/1569/26</td><td class="phone"><a href="tel:+255674423187">+255 674 423 187</a></td></tr>
+<tr data-s="joseph sheremia nyanyika mocu/bbict/1433/26 +255679658718"><td class="num">55</td><td class="name">Joseph Sheremia Nyanyika</td><td class="reg">MoCU/BBICT/1433/26</td><td class="phone"><a href="tel:+255679658718">+255 679 658 718</a></td></tr>
+<tr data-s="wilson boniphace kimaro mocu/bbict/1488/26 +255682050377"><td class="num">56</td><td class="name">Wilson Boniphace Kimaro</td><td class="reg">MoCU/BBICT/1488/26</td><td class="phone"><a href="tel:+255682050377">+255 682 050 377</a></td></tr>
+<tr data-s="godfrey rogatus mseke mocu/bbict/1456/26 +255634000185"><td class="num">57</td><td class="name">Godfrey Rogatus Mseke</td><td class="reg">MoCU/BBICT/1456/26</td><td class="phone"><a href="tel:+255634000185">+255 634 000 185</a></td></tr>
+<tr data-s="job jonathan baliyononela mocu/bbict/1499/26 +255761367318"><td class="num">58</td><td class="name">Job Jonathan Baliyononela</td><td class="reg">MoCU/BBICT/1499/26</td><td class="phone"><a href="tel:+255761367318">+255 761 367 318</a></td></tr>
+<tr data-s="yemima hosea john mocu/bbict/1595/26 +255775119007"><td class="num">59</td><td class="name">Yemima Hosea John</td><td class="reg">MoCU/BBICT/1595/26</td><td class="phone"><a href="tel:+255775119007">+255 775 119 007</a></td></tr>
+<tr data-s="mengi kulwa kabika mocu/bbict/1480/26 +255744123862"><td class="num">60</td><td class="name">Mengi Kulwa Kabika</td><td class="reg">MoCU/BBICT/1480/26</td><td class="phone"><a href="tel:+255744123862">+255 744 123 862</a></td></tr>
+<tr data-s="noel temu mocu/bbict/1537/26 +255719661872"><td class="num">61</td><td class="name">Noel Temu</td><td class="reg">MoCU/BBICT/1537/26</td><td class="phone"><a href="tel:+255719661872">+255 719 661 872</a></td></tr>
+<tr data-s="abdul mapya mocu/bbict/1521/26 +255710153663"><td class="num">62</td><td class="name">Abdul Mapya</td><td class="reg">MoCU/BBICT/1521/26</td><td class="phone"><a href="tel:+255710153663">+255 710 153 663</a></td></tr>
+<tr data-s="samwel kimaro mocu/bbict/1539/26 +255759326286"><td class="num">63</td><td class="name">Samwel Kimaro</td><td class="reg">MoCU/BBICT/1539/26</td><td class="phone"><a href="tel:+255759326286">+255 759 326 286</a></td></tr>
+<tr data-s="hamisi simba mocu/bbict/1529/26 +255781578143"><td class="num">64</td><td class="name">Hamisi Simba</td><td class="reg">MoCU/BBICT/1529/26</td><td class="phone"><a href="tel:+255781578143">+255 781 578 143</a></td></tr>
+<tr data-s="deogratius thadeus lyimo mocu/bbict/1582/26 +255742456537"><td class="num">65</td><td class="name">Deogratius Thadeus Lyimo</td><td class="reg">MoCU/BBICT/1582/26</td><td class="phone"><a href="tel:+255742456537">+255 742 456 537</a></td></tr>
+<tr data-s="loishiye riton tapeti mocu/bbict/1478/26 +255674243936"><td class="num">66</td><td class="name">Loishiye Riton Tapeti</td><td class="reg">MoCU/BBICT/1478/26</td><td class="phone"><a href="tel:+255674243936">+255 674 243 936</a></td></tr>
+<tr data-s="priscus arbogast ngowi mocu/bbict/1495/26 +255770208036"><td class="num">67</td><td class="name">Priscus Arbogast Ngowi</td><td class="reg">MoCU/BBICT/1495/26</td><td class="phone"><a href="tel:+255770208036">+255 770 208 036</a></td></tr>
+<tr data-s="faith irikael kaaya mocu/bbict/1557/26 +255677708942"><td class="num">68</td><td class="name">Faith Irikael Kaaya</td><td class="reg">MoCU/BBICT/1557/26</td><td class="phone"><a href="tel:+255677708942">+255 677 708 942</a></td></tr>
+<tr data-s="edina philimon mocu/bbict/1420/26 +255722496048"><td class="num">69</td><td class="name">Edina Philimon</td><td class="reg">MoCU/BBICT/1420/26</td><td class="phone"><a href="tel:+255722496048">+255 722 496 048</a></td></tr>
+<tr data-s="neema ngine lang&#x27;asani mocu/bbict/1512/26 +255753513874"><td class="num">70</td><td class="name">Neema Ngine Lang&#x27;asani</td><td class="reg">MoCU/BBICT/1512/26</td><td class="phone"><a href="tel:+255753513874">+255 753 513 874</a></td></tr>
+<tr data-s="sophia shafii ramadhani mocu/bbict/1502/26 +255638525188"><td class="num">71</td><td class="name">Sophia Shafii Ramadhani</td><td class="reg">MoCU/BBICT/1502/26</td><td class="phone"><a href="tel:+255638525188">+255 638 525 188</a></td></tr>
+<tr data-s="marian elia genda mocu/bbict/1498/26 +255697955360"><td class="num">72</td><td class="name">Marian Elia Genda</td><td class="reg">MoCU/BBICT/1498/26</td><td class="phone"><a href="tel:+255697955360">+255 697 955 360</a></td></tr>
+<tr data-s="joshua julius mng&#x27;ara mocu/bbict/1570/26 +255696547873"><td class="num">73</td><td class="name">Joshua Julius Mng&#x27;ara</td><td class="reg">MoCU/BBICT/1570/26</td><td class="phone"><a href="tel:+255696547873">+255 696 547 873</a></td></tr>
+<tr data-s="abdulrazaq issa salimu mocu/bbict/1586/26 +255614086891"><td class="num">74</td><td class="name">Abdulrazaq Issa Salimu</td><td class="reg">MoCU/BBICT/1586/26</td><td class="phone"><a href="tel:+255614086891">+255 614 086 891</a></td></tr>
+<tr data-s="thomas zakayo lugega mocu/bbict/1459/26 +255763906132"><td class="num">75</td><td class="name">Thomas Zakayo Lugega</td><td class="reg">MoCU/BBICT/1459/26</td><td class="phone"><a href="tel:+255763906132">+255 763 906 132</a></td></tr>
+<tr data-s="chrisabta isaria mauki mocu/bbict/1565/26 +255797661915"><td class="num">76</td><td class="name">Chrisabta Isaria Mauki</td><td class="reg">MoCU/BBICT/1565/26</td><td class="phone"><a href="tel:+255797661915">+255 797 661 915</a></td></tr>
+<tr data-s="charles emmanuel gebacha  +255767405063"><td class="num">77</td><td class="name">Charles Emmanuel Gebacha</td><td class="reg"><span class="muted">&mdash;</span></td><td class="phone"><a href="tel:+255767405063">+255 767 405 063</a></td></tr>
+<tr data-s="pauletha kemilembe godwini  +255745841468"><td class="num">78</td><td class="name">Pauletha Kemilembe Godwini</td><td class="reg"><span class="muted">&mdash;</span></td><td class="phone"><a href="tel:+255745841468">+255 745 841 468</a></td></tr>
+<tr data-s="frolida fungamela majura  +255770582550"><td class="num">79</td><td class="name">Frolida Fungamela Majura</td><td class="reg"><span class="muted">&mdash;</span></td><td class="phone"><a href="tel:+255770582550">+255 770 582 550</a></td></tr>
+<tr data-s="jacob james sostenes  +255740970015"><td class="num">80</td><td class="name">Jacob James Sostenes</td><td class="reg"><span class="muted">&mdash;</span></td><td class="phone"><a href="tel:+255740970015">+255 740 970 015</a></td></tr>
+<tr data-s="elius chacha mwita mocu/bbict/1581/26 +255615494232"><td class="num">81</td><td class="name">Elius Chacha Mwita</td><td class="reg">MoCU/BBICT/1581/26</td><td class="phone"><a href="tel:+255615494232">+255 615 494 232</a></td></tr>
+      </tbody>
+    </table>
+    <div class="empty" id="empty">Hakuna jina linalolingana na utafutaji wako.</div>
+  </div>
+</main>
+
+<footer>
+  <strong>Jumla ya wanafunzi: 81</strong> &middot; Imetolewa Novemba 2026<br />
+  BBICT I &mdash; Moshi Co-operative University
+</footer>
+
+<script>
+(function(){
+  var q=document.getElementById('q'), body=document.getElementById('body');
+  var rows=Array.prototype.slice.call(body.querySelectorAll('tr'));
+  var count=document.getElementById('count'), empty=document.getElementById('empty');
+  var total=rows.length;
+  function apply(){
+    var v=q.value.trim().toLowerCase(), n=0;
+    for(var i=0;i<rows.length;i++){
+      var r=rows[i], ok=!v||(r.getAttribute('data-s')||'').indexOf(v)!==-1;
+      r.style.display=ok?'':'none'; if(ok)n++;
+    }
+    count.textContent='Inaonyesha '+n+' kati ya '+total;
+    empty.style.display=n?'none':'block';
+  }
+  q.addEventListener('input',apply); apply();
+})();
+</script>
+</body>
+</html>
