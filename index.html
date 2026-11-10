@@ -50,6 +50,9 @@
   nav.tabs a:hover{color:var(--green);transform:translateY(-1px);box-shadow:0 8px 18px rgba(15,42,29,.10)}
   nav.tabs a.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;
     border-color:transparent;box-shadow:0 8px 20px rgba(11,107,58,.30)}
+  nav.tabs a.register{margin-left:auto;background:linear-gradient(135deg,#0b6b3a,#10b981);color:#fff;
+    border-color:transparent;box-shadow:0 8px 20px rgba(11,107,58,.30)}
+  nav.tabs a.register:hover{color:#fff;transform:translateY(-2px);box-shadow:0 12px 26px rgba(11,107,58,.38)}
   main{max-width:1000px;margin:0 auto;padding:24px 14px 40px}
   .notice{background:linear-gradient(180deg,#fffdf4,#fff6dc);border:1px solid var(--amberb);
     border-left:7px solid var(--amberl);border-radius:18px;padding:20px 22px;margin:0 0 22px;
@@ -119,6 +122,7 @@
     .logo{width:68px;height:68px;border-radius:18px}
     .stat{padding:8px 14px;min-width:84px}
     .stat b{font-size:18px}
+    nav.tabs a.register{flex:1 1 100%;justify-content:center;margin-left:0}
     .toolbar{position:static}
     .count{width:100%}
     .tablewrap{max-height:none}
@@ -147,7 +151,6 @@
   <div class="stats">
     <div class="stat"><b>145</b>Wanafunzi</div>
     <div class="stat"><b>15</b>Vikundi</div>
-    <div class="stat"><b>Nov 2026</b>Msimu wa Kwanza</div>
   </div>
 </header>
 
@@ -155,15 +158,10 @@
 <nav class="tabs">
   <a class="active" href="index.html">&#128203; Orodha ya Wanafunzi</a>
   <a href="groups.html">&#128101; Vikundi (Groups)</a>
+  <a class="register" href="https://docs.google.com/forms/d/e/1FAIpQLSchfe0p_32rOMpHuZdbXM5EMvib3oBFC1MgcLljJqMnmx0BfQ/viewform?usp=pp_url&entry.1091080421=Jina+langu+halipo+kwenye+orodha+%28My+name+is+missing%29" target="_blank" rel="noopener">&#10133; Jisajili</a>
 </nav>
 </div>
 <main>
-  <div class="actions">
-    <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSchfe0p_32rOMpHuZdbXM5EMvib3oBFC1MgcLljJqMnmx0BfQ/viewform?usp=pp_url&entry.1091080421=Jina+langu+halipo+kwenye+orodha+%28My+name+is+missing%29" target="_blank" rel="noopener">&#10133; Jisajili (Sipo kwenye Orodha)</a>
-    <a class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSd1sJWxpdOUH2vwmvbHUgKMgJm8fGDLpXFjtpwaGpNqoXXvgA/viewform" target="_blank" rel="noopener">&#128187; Sajili Kompyuta/PC</a>
-    <span class="hint">Ukiwa kwenye orodha, bofya <b>&ldquo;Rekebisha&rdquo;</b> kwenye mstari wako kurekodi mabadiliko. Huna namba ya usajili? Andika <b>NIL</b> kwenye sehemu ya Reg. No.</span>
-  </div>
-
   <div class="toolbar">
     <input id="q" type="search" placeholder="Tafuta jina, usajili au simu&hellip;" aria-label="Search students" />
     <span class="count" id="count"></span>
@@ -330,12 +328,6 @@
       </tbody>
     </table>
     <div class="empty" id="empty">Hakuna jina linalolingana na utafutaji wako.</div>
-  </div>
-
-  <div class="actions" style="margin-top:18px">
-    <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSchfe0p_32rOMpHuZdbXM5EMvib3oBFC1MgcLljJqMnmx0BfQ/viewform?usp=pp_url&entry.1091080421=Jina+langu+halipo+kwenye+orodha+%28My+name+is+missing%29" target="_blank" rel="noopener">&#10133; Jisajili (Sipo kwenye Orodha)</a>
-    <a class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSd1sJWxpdOUH2vwmvbHUgKMgJm8fGDLpXFjtpwaGpNqoXXvgA/viewform" target="_blank" rel="noopener">&#128187; Sajili Kompyuta/PC</a>
-    <span class="hint">Jina lako halipo? Bofya hapa ujisajili. Huna namba ya usajili? Andika <b>NIL</b> kwenye sehemu ya Reg. No.</span>
   </div>
 </main>
 
