@@ -361,7 +361,10 @@
   var names=body.querySelectorAll('td.name');
   for(var j=0;j<names.length;j++){
     names[j].addEventListener('click',function(){
-      this.parentElement.classList.toggle('open');
+      var tr=this.parentElement, wasOpen=tr.classList.contains('open');
+      var opened=body.querySelectorAll('tr.open');
+      for(var k=0;k<opened.length;k++){ opened[k].classList.remove('open'); }
+      if(!wasOpen) tr.classList.add('open');
     });
   }
 })();

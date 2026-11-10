@@ -167,6 +167,15 @@
       this.parentElement.classList.toggle('open');
     });
   }
+  var ds=document.querySelectorAll('details.grp');
+  for(var d=0;d<ds.length;d++){
+    ds[d].addEventListener('toggle',function(){
+      if(!this.open)return;
+      for(var x=0;x<ds.length;x++){
+        if(ds[x]!==this && ds[x].open) ds[x].open=false;
+      }
+    });
+  }
 })();
 </script>
 </body>
