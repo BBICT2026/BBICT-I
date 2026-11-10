@@ -4,71 +4,118 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#0b6b3a" />
+<link rel="icon" type="image/png" href="logo.png" />
 <title>BBICT I &mdash; Vikundi (Groups)</title>
 <style>
-  :root{--green:#0b6b3a;--green2:#12864a;--ink:#14231b;--muted:#6b7d72;--line:#e2e8e4;--bg:#f4f7f5}
+  :root{
+    --green:#0b6b3a; --green2:#12864a; --emerald:#10b981; --ink:#0f1f17; --muted:#64756b;
+    --line:#e3eae6; --bg:#f0f6f2; --card:#ffffff; --wa:#25D366;
+    --shadow:0 10px 30px rgba(15,42,29,.08); --shadow-lg:0 18px 46px rgba(15,42,29,.14);
+  }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   html,body{margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;-webkit-text-size-adjust:100%}
-  header{background:linear-gradient(135deg,#0a5f34,#12864a);color:#fff;padding:34px 18px 30px;text-align:center}
-  .badge{display:inline-block;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;
-    background:rgba(255,255,255,.16);padding:7px 15px;border-radius:999px;margin-bottom:13px;font-weight:600}
-  header h1{margin:0;font-size:clamp(25px,6vw,37px);line-height:1.2;font-weight:800}
-  header .sub{opacity:.92;margin-top:10px;font-size:17px}
-  nav.tabs{max-width:1000px;margin:0 auto;padding:16px 14px 0;display:flex;gap:8px;flex-wrap:wrap}
-  nav.tabs a{display:inline-block;padding:11px 18px;border-radius:10px 10px 0 0;text-decoration:none;
-    font-weight:700;font-size:15.5px;color:var(--muted);background:#e8efeb;border:1px solid var(--line);border-bottom:none}
-  nav.tabs a:hover{color:var(--green)}
-  nav.tabs a.active{background:#fff;color:var(--green)}
-  main{max-width:1000px;margin:0 auto;padding:20px 14px 40px}
-  .intro{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:0 0 16px;
-    box-shadow:0 2px 10px rgba(0,0,0,.05);font-size:16px}
+    background:
+      radial-gradient(900px 420px at 8% -8%, #dbeee3 0%, transparent 60%),
+      radial-gradient(900px 420px at 100% 0%, #e2f3ea 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);line-height:1.6;font-size:17px;-webkit-text-size-adjust:100%;
+    -webkit-font-smoothing:antialiased}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  header{position:relative;overflow:hidden;color:#fff;text-align:center;padding:44px 18px 40px;
+    background:
+      radial-gradient(700px 300px at 15% -20%, rgba(255,255,255,.18), transparent 60%),
+      radial-gradient(600px 280px at 90% 10%, rgba(16,185,129,.38), transparent 60%),
+      linear-gradient(135deg,#064e2c 0%,#0b6b3a 48%,#12864a 100%)}
+  .logo{width:82px;height:82px;object-fit:contain;background:#fff;border-radius:22px;
+    padding:9px;box-shadow:0 12px 30px rgba(0,0,0,.30);display:block;margin:0 auto 16px}
+  .badge{display:inline-block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+    padding:7px 16px;border-radius:999px;margin-bottom:14px;font-weight:700;backdrop-filter:blur(6px)}
+  header h1{margin:0;font-size:clamp(26px,6vw,40px);line-height:1.15;font-weight:800;letter-spacing:-.02em}
+  header .sub{opacity:.93;margin-top:10px;font-size:16.5px}
+  .stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+    padding:9px 18px;border-radius:14px;font-size:13px;font-weight:600;letter-spacing:.02em;
+    backdrop-filter:blur(6px);min-width:96px}
+  .stat b{display:block;font-size:20px;line-height:1.25;letter-spacing:0}
+  .topbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
+    background:rgba(240,246,242,.88);border-bottom:1px solid rgba(226,234,229,.9)}
+  nav.tabs{max-width:1000px;margin:0 auto;padding:12px 14px;display:flex;gap:8px;flex-wrap:wrap}
+  nav.tabs a{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:999px;
+    text-decoration:none;font-weight:700;font-size:15px;color:var(--muted);background:#fff;
+    border:1px solid var(--line);box-shadow:0 2px 8px rgba(15,42,29,.05);transition:.18s}
+  nav.tabs a:hover{color:var(--green);transform:translateY(-1px);box-shadow:0 8px 18px rgba(15,42,29,.10)}
+  nav.tabs a.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;
+    border-color:transparent;box-shadow:0 8px 20px rgba(11,107,58,.30)}
+  main{max-width:1000px;margin:0 auto;padding:24px 14px 40px}
+  .intro{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;
+    margin:0 0 16px;box-shadow:var(--shadow);font-size:16px;animation:rise .45s ease both}
   .intro b{color:var(--green)}
-  .toc{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
-  .toc a{display:inline-block;padding:8px 14px;border:1.5px solid var(--green);border-radius:999px;
-    text-decoration:none;font-weight:700;font-size:14.5px;color:var(--green)}
-  .toc a:hover{background:var(--green);color:#fff}
-  details.grp{background:#fff;border:1px solid var(--line);border-radius:14px;margin:0 0 12px;
-    box-shadow:0 2px 10px rgba(0,0,0,.05);overflow:hidden}
-  details.grp summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-    list-style:none;font-size:18px}
+  .toc{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px;animation:rise .45s .05s ease both}
+  .toc a{display:inline-block;padding:9px 15px;border:1.5px solid var(--green);border-radius:999px;
+    text-decoration:none;font-weight:700;font-size:14px;color:var(--green);background:#fff;
+    transition:.16s;box-shadow:0 2px 8px rgba(15,42,29,.05)}
+  .toc a:hover{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;
+    transform:translateY(-2px);box-shadow:0 10px 20px rgba(11,107,58,.28)}
+  details.grp{background:#fff;border:1px solid var(--line);border-radius:18px;margin:0 0 12px;
+    box-shadow:var(--shadow);overflow:hidden;transition:box-shadow .2s,transform .2s}
+  details.grp:hover{box-shadow:var(--shadow-lg);transform:translateY(-1px)}
+  details.grp[open]{border-color:#bfe0cd}
+  details.grp summary{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;
+    flex-wrap:wrap;list-style:none;font-size:18px}
   details.grp summary::-webkit-details-marker{display:none}
-  details.grp summary::after{content:"\25BE";margin-left:auto;color:var(--muted);font-size:14px;transition:transform .15s}
+  details.grp summary::after{content:"\25BE";margin-left:auto;color:var(--muted);font-size:14px;transition:transform .18s}
   details.grp[open] summary::after{transform:rotate(180deg)}
-  .gname{font-weight:800;color:var(--green);letter-spacing:.03em}
-  .gmeta{color:var(--muted);font-size:14.5px;font-weight:600}
-  .gspace{background:#fff6dc;color:#8a5a00;font-weight:700;font-size:13.5px;padding:4px 10px;border-radius:999px}
-  .wa{display:inline-block;background:#25D366;color:#fff;text-decoration:none;font-weight:700;
-    font-size:14px;padding:8px 14px;border-radius:999px;white-space:nowrap}
-  .wa:hover{background:#1da851}
-  tr.joinrow td{padding:12px 14px 14px;border-top:1px solid var(--line);background:#f2fbf5}
-  tr.joinrow .wa{font-size:14.5px;padding:10px 16px}
+  .gname{display:inline-flex;align-items:center;font-weight:800;color:#fff;letter-spacing:.05em;
+    font-size:14.5px;background:linear-gradient(135deg,var(--green),var(--emerald));
+    padding:7px 14px;border-radius:999px;box-shadow:0 6px 14px rgba(11,107,58,.22)}
+  .gmeta{color:var(--muted);font-size:14px;font-weight:600}
+  .gspace{background:#fff6dc;color:#8a5a00;font-weight:700;font-size:12.5px;padding:5px 11px;
+    border-radius:999px;border:1px solid #f0dcaa}
+  .wa{display:inline-block;background:var(--wa);color:#fff;text-decoration:none;font-weight:700;
+    font-size:13.5px;padding:9px 15px;border-radius:999px;white-space:nowrap;transition:.16s;
+    box-shadow:0 6px 16px rgba(37,211,102,.30)}
+  .wa:hover{background:#1da851;transform:translateY(-1px);box-shadow:0 10px 22px rgba(37,211,102,.38)}
   .tablewrap{overflow-x:auto;border-top:1px solid var(--line)}
   table{border-collapse:collapse;width:100%;font-size:16px;min-width:520px}
-  thead th{background:var(--green);color:#fff;text-align:left;padding:11px 14px;font-size:13px;
-    letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+  thead th{background:linear-gradient(180deg,#0b6b3a,#0d7a42);color:#fff;text-align:left;
+    padding:12px 14px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;font-weight:700}
   thead th.n{text-align:right}
-  tbody td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
-  tbody tr:nth-child(even){background:#f7faf8}
+  tbody td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tbody tr{transition:background .15s}
+  tbody tr:nth-child(even){background:#fafcfb}
+  tbody tr:hover{background:#f1f9f5}
   td.num{color:var(--muted);width:44px;text-align:right;font-variant-numeric:tabular-nums}
-  td.name{font-weight:600}
-  td.reg{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14.5px;white-space:nowrap}
+  td.name{font-weight:700}
+  td.reg{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;
+    white-space:nowrap;color:#3c544a}
   td.phone{white-space:nowrap}
   td.phone a{color:var(--green);text-decoration:none;font-variant-numeric:tabular-nums;font-weight:600}
   .nil{color:#8a5a00;font-weight:700}
   tr.openrow td{background:#fffbea;color:#8a5a00;font-style:italic}
-  footer{text-align:center;color:var(--muted);font-size:15px;padding:20px 14px 48px}
+  tr.joinrow td{padding:12px 14px 15px;border-top:1px solid var(--line);background:#f2fbf5}
+  tr.joinrow .wa{font-size:14.5px;padding:11px 18px}
+  footer{text-align:center;color:var(--muted);font-size:14.5px;padding:26px 14px 48px;
+    border-top:1px solid rgba(226,234,229,.9);margin-top:28px}
   footer strong{color:var(--green)}
   @media (max-width:640px){
+    header{padding:34px 16px 30px}
+    .logo{width:68px;height:68px;border-radius:18px}
+    .stat{padding:8px 14px;min-width:84px}
+    .stat b{font-size:18px}
+    .toc{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+    .toc a{flex:0 0 auto}
+    details.grp summary{padding:14px 16px;gap:9px}
     table{min-width:0}
     thead{display:none}
-    tbody tr{display:block;padding:12px 16px;border-top:1px solid var(--line)}
+    tbody tr{display:block;padding:13px 16px;border-top:1px solid var(--line)}
     tbody tr:first-child{border-top:none}
     tbody td{display:block;border:none;padding:2px 0;white-space:normal;word-break:break-word}
     td.num{float:right;width:auto;font-weight:700}
     td.name{font-size:17.5px;line-height:1.35}
-    td.reg{white-space:normal;word-break:break-all;font-size:14px}
+    td.reg{white-space:normal;word-break:break-all;font-size:13.5px}
     td.reg::before{content:"Reg: ";color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-weight:600}
     td.phone{margin-top:2px}
     td.phone::before{content:"Simu: ";color:var(--muted);font-weight:600}
@@ -81,16 +128,23 @@
 </head>
 <body>
 <header>
+  <img class="logo" src="logo.png" alt="Moshi Co-operative University" />
   <div class="badge">Moshi Co-operative University</div>
   <h1>BBICT I &mdash; Vikundi (Groups)</h1>
   <div class="sub">First Semester 2026/2027 &middot; Wanafunzi 145</div>
+  <div class="stats">
+    <div class="stat"><b>145</b>Wanafunzi</div>
+    <div class="stat"><b>15</b>Vikundi</div>
+    <div class="stat"><b>5</b>Nafasi Wazi</div>
+  </div>
 </header>
 
+<div class="topbar">
 <nav class="tabs">
   <a href="index.html">&#128203; Orodha ya Wanafunzi</a>
   <a class="active" href="groups.html">&#128101; Vikundi (Groups)</a>
 </nav>
-
+</div>
 <main>
   <div class="intro">
     Bofya kundi lako kuona wanafunzi wake. <b>Namba za simu</b> za wanafunzi zipo kwenye orodha &mdash;

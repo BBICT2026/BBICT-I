@@ -4,120 +4,159 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#0b6b3a" />
+<link rel="icon" type="image/png" href="logo.png" />
 <title>BBICT I — Orodha ya Wanafunzi na Taarifa ya Vikundi</title>
 <style>
   :root{
-    --green:#0b6b3a; --green2:#12864a; --ink:#14231b; --muted:#6b7d72;
-    --line:#e2e8e4; --bg:#f4f7f5; --amber:#fff6dc; --amberb:#f0cf85;
-    --amberl:#d99b1a; --amberink:#6b4a00;
+    --green:#0b6b3a; --green2:#12864a; --emerald:#10b981; --ink:#0f1f17; --muted:#64756b;
+    --line:#e3eae6; --bg:#f0f6f2; --card:#ffffff;
+    --amber:#fff6dc; --amberb:#f0cf85; --amberl:#d99b1a; --amberink:#6b4a00;
+    --shadow:0 10px 30px rgba(15,42,29,.08); --shadow-lg:0 18px 46px rgba(15,42,29,.14);
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   html,body{margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;-webkit-text-size-adjust:100%}
-  header{background:linear-gradient(135deg,#0a5f34,#12864a);color:#fff;padding:34px 18px 30px;text-align:center}
-  .badge{display:inline-block;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;
-    background:rgba(255,255,255,.16);padding:7px 15px;border-radius:999px;margin-bottom:13px;font-weight:600}
-  header h1{margin:0;font-size:clamp(25px,6vw,37px);line-height:1.2;font-weight:800}
-  header .sub{opacity:.92;margin-top:10px;font-size:17px}
-  main{max-width:1000px;margin:0 auto;padding:20px 14px 40px}
-  .notice{background:var(--amber);border:1px solid var(--amberb);border-left:7px solid var(--amberl);
-    border-radius:14px;padding:20px 22px;margin:6px 0 24px;box-shadow:0 3px 12px rgba(0,0,0,.05)}
-  .notice h2{margin:0 0 12px;font-size:19px;color:var(--amberink);text-transform:uppercase;letter-spacing:.05em}
-  .notice p{margin:10px 0;font-size:18px}
+    background:
+      radial-gradient(900px 420px at 8% -8%, #dbeee3 0%, transparent 60%),
+      radial-gradient(900px 420px at 100% 0%, #e2f3ea 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);line-height:1.6;font-size:17px;-webkit-text-size-adjust:100%;
+    -webkit-font-smoothing:antialiased}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  header{position:relative;overflow:hidden;color:#fff;text-align:center;padding:44px 18px 40px;
+    background:
+      radial-gradient(700px 300px at 15% -20%, rgba(255,255,255,.18), transparent 60%),
+      radial-gradient(600px 280px at 90% 10%, rgba(16,185,129,.38), transparent 60%),
+      linear-gradient(135deg,#064e2c 0%,#0b6b3a 48%,#12864a 100%)}
+  .logo{width:82px;height:82px;object-fit:contain;background:#fff;border-radius:22px;
+    padding:9px;box-shadow:0 12px 30px rgba(0,0,0,.30);display:block;margin:0 auto 16px}
+  .badge{display:inline-block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+    padding:7px 16px;border-radius:999px;margin-bottom:14px;font-weight:700;backdrop-filter:blur(6px)}
+  header h1{margin:0;font-size:clamp(26px,6vw,40px);line-height:1.15;font-weight:800;letter-spacing:-.02em}
+  header .sub{opacity:.93;margin-top:10px;font-size:16.5px}
+  .stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+    padding:9px 18px;border-radius:14px;font-size:13px;font-weight:600;letter-spacing:.02em;
+    backdrop-filter:blur(6px);min-width:96px}
+  .stat b{display:block;font-size:20px;line-height:1.25;letter-spacing:0}
+  .topbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
+    background:rgba(240,246,242,.88);border-bottom:1px solid rgba(226,234,229,.9)}
+  nav.tabs{max-width:1000px;margin:0 auto;padding:12px 14px;display:flex;gap:8px;flex-wrap:wrap}
+  nav.tabs a{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:999px;
+    text-decoration:none;font-weight:700;font-size:15px;color:var(--muted);background:#fff;
+    border:1px solid var(--line);box-shadow:0 2px 8px rgba(15,42,29,.05);transition:.18s}
+  nav.tabs a:hover{color:var(--green);transform:translateY(-1px);box-shadow:0 8px 18px rgba(15,42,29,.10)}
+  nav.tabs a.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;
+    border-color:transparent;box-shadow:0 8px 20px rgba(11,107,58,.30)}
+  main{max-width:1000px;margin:0 auto;padding:24px 14px 40px}
+  .notice{background:linear-gradient(180deg,#fffdf4,#fff6dc);border:1px solid var(--amberb);
+    border-left:7px solid var(--amberl);border-radius:18px;padding:20px 22px;margin:0 0 22px;
+    box-shadow:var(--shadow);animation:rise .45s ease both}
+  .notice h2{margin:0 0 12px;font-size:18px;color:var(--amberink);text-transform:uppercase;letter-spacing:.05em}
+  .notice p{margin:10px 0;font-size:17.5px}
   .notice .date{background:#fff;padding:2px 9px;border-radius:6px;color:#8a5a00;font-weight:700;white-space:nowrap}
   .notice ul{margin:10px 0 4px;padding-left:24px;font-size:17px}
   .notice li{margin:6px 0}
   .notice .en{color:#6b5a33;font-size:15.5px;margin-top:14px;border-top:1px dashed #e5cd92;padding-top:12px}
-  .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
-  #q{flex:1 1 260px;padding:14px 16px;border:1px solid #cfdcd4;border-radius:10px;font-size:17px;
-    outline:none;background:#fff;color:var(--ink)}
-  #q:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(18,134,74,.15)}
-  .count{font-size:15.5px;color:var(--muted);white-space:nowrap}
+  .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 14px;
+    background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:var(--shadow);
+    animation:rise .45s .05s ease both;position:sticky;top:64px;z-index:10}
+  #q{flex:1 1 260px;padding:14px 16px;border:1px solid transparent;border-radius:12px;font-size:17px;
+    outline:none;background:#f2f7f4;color:var(--ink);transition:.18s}
+  #q:focus{background:#fff;border-color:var(--green);box-shadow:0 0 0 4px rgba(18,134,74,.14)}
+  .count{font-size:14.5px;color:var(--muted);white-space:nowrap;padding:0 8px}
   .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 18px}
   .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:14px 22px;
-    border-radius:12px;font-weight:700;font-size:16.5px;line-height:1}
-  .btn.primary{background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(11,107,58,.28)}
-  .btn.primary:hover{background:var(--green2)}
+    border-radius:14px;font-weight:700;font-size:16px;line-height:1;transition:.18s}
+  .btn.primary{background:linear-gradient(135deg,#0b6b3a,#10b981);color:#fff;
+    box-shadow:0 10px 24px rgba(11,107,58,.28)}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(11,107,58,.34)}
   .hint{font-size:15px;color:var(--muted);flex:1 1 240px}
   .hint b{color:var(--ink)}
-  .tablewrap{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:auto;
-    max-height:74vh;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+  .tablewrap{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:auto;
+    max-height:74vh;box-shadow:var(--shadow);animation:rise .45s .1s ease both}
   table{border-collapse:collapse;width:100%;font-size:16px;min-width:820px}
-  thead th{position:sticky;top:0;background:var(--green);color:#fff;text-align:left;padding:14px;
-    font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;z-index:2;white-space:nowrap}
+  thead th{position:sticky;top:0;background:linear-gradient(180deg,#0b6b3a,#0d7a42);color:#fff;
+    text-align:left;padding:15px 14px;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;
+    z-index:2;white-space:nowrap;font-weight:700}
   thead th.n{text-align:right}
-  tbody td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}
-  tbody tr:nth-child(even){background:#f7faf8}
-  tbody tr:hover{background:#eef6f1}
+  tbody td{padding:13px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tbody tr{transition:background .15s}
+  tbody tr:nth-child(even){background:#fafcfb}
+  tbody tr:hover{background:#f1f9f5}
   td.num{color:var(--muted);width:50px;text-align:right;font-variant-numeric:tabular-nums}
-  td.name{font-weight:600}
-  td.reg{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;white-space:nowrap}
+  td.name{font-weight:700}
+  td.reg{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14.5px;white-space:nowrap;color:#3c544a}
   td.phone{white-space:nowrap}
   td.phone a{color:var(--green);text-decoration:none;font-variant-numeric:tabular-nums;font-weight:600}
   td.act{white-space:nowrap;text-align:center}
-  .confirmed{display:inline-block;color:var(--green);font-weight:800;font-size:19px;line-height:1}
-  a.edit{display:inline-block;padding:7px 14px;border:1.5px solid var(--green);border-radius:999px;
-    color:var(--green);text-decoration:none;font-weight:700;font-size:14px}
+  .confirmed{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+    border-radius:50%;background:#e6f4ea;color:var(--green);font-weight:800;font-size:17px;line-height:1}
+  a.edit{display:inline-block;padding:8px 15px;border:1.5px solid var(--green);border-radius:999px;
+    color:var(--green);text-decoration:none;font-weight:700;font-size:13.5px;transition:.16s}
   a.edit:hover{background:var(--green);color:#fff}
   .muted{color:#9aa8a0}
   .nil{color:#8a5a00;font-weight:700;letter-spacing:.03em}
-  .btn.secondary{background:#1d4ed8;color:#fff;box-shadow:0 4px 14px rgba(29,78,216,.28)}
-  .btn.secondary:hover{background:#1e40af}
-  a.pc{display:inline-block;padding:7px 12px;border:1.5px solid #1d4ed8;border-radius:999px;
-    color:#1d4ed8;text-decoration:none;font-weight:700;font-size:13.5px;white-space:nowrap}
+  .btn.secondary{background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff;
+    box-shadow:0 10px 24px rgba(29,78,216,.26)}
+  .btn.secondary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(29,78,216,.32)}
+  a.pc{display:inline-block;padding:8px 13px;border:1.5px solid #1d4ed8;border-radius:999px;
+    color:#1d4ed8;text-decoration:none;font-weight:700;font-size:13.5px;white-space:nowrap;transition:.16s}
   a.pc:hover{background:#1d4ed8;color:#fff}
-  .badge-yes{display:inline-block;padding:5px 11px;border-radius:999px;background:#e6f4ea;
+  .badge-yes{display:inline-block;padding:6px 12px;border-radius:999px;background:#e6f4ea;
     color:#0b6b3a;font-weight:700;font-size:13.5px;white-space:nowrap}
-  .badge-no{display:inline-block;padding:5px 11px;border-radius:999px;background:#fdecea;
+  .badge-no{display:inline-block;padding:6px 12px;border-radius:999px;background:#fdecea;
     color:#a1261c;font-weight:700;font-size:13.5px;white-space:nowrap}
   td.pc{text-align:center;white-space:nowrap}
   .empty{padding:24px;text-align:center;color:var(--muted);display:none;font-size:16px}
-  footer{text-align:center;color:var(--muted);font-size:15px;padding:20px 14px 48px}
+  footer{text-align:center;color:var(--muted);font-size:14.5px;padding:26px 14px 48px;
+    border-top:1px solid rgba(226,234,229,.9);margin-top:28px}
   footer strong{color:var(--green)}
-  nav.tabs{max-width:1000px;margin:0 auto;padding:16px 14px 0;display:flex;gap:8px;flex-wrap:wrap}
-  nav.tabs a{display:inline-block;padding:11px 18px;border-radius:10px 10px 0 0;text-decoration:none;
-    font-weight:700;font-size:15.5px;color:var(--muted);background:#e8efeb;border:1px solid var(--line);border-bottom:none}
-  nav.tabs a:hover{color:var(--green)}
-  nav.tabs a.active{background:#fff;color:var(--green)}
-  .soon{background:#fff;border:1px solid var(--line);border-radius:16px;padding:56px 24px;text-align:center;
-    box-shadow:0 3px 16px rgba(0,0,0,.06);margin-top:20px}
-  .soon-ico{font-size:54px;line-height:1}
-  .soon h2{margin:14px 0 10px;font-size:clamp(26px,6vw,34px);color:var(--green)}
-  .soon p{margin:8px 0;font-size:18px}
-  .soon .en{color:var(--muted);font-size:16px;margin-top:14px}
-  .soon .btn{margin-top:22px}
   @media (max-width:640px){
+    header{padding:34px 16px 30px}
+    .logo{width:68px;height:68px;border-radius:18px}
+    .stat{padding:8px 14px;min-width:84px}
+    .stat b{font-size:18px}
+    .toolbar{position:static}
     .count{width:100%}
     .tablewrap{max-height:none}
     table{min-width:0}
     thead{display:none}
-    tbody tr{display:block;padding:12px 14px;border-top:1px solid var(--line)}
+    tbody tr{display:block;padding:13px 15px;border-top:1px solid var(--line)}
     tbody tr:first-child{border-top:none}
     tbody td{display:block;border:none;padding:2px 0;white-space:normal;word-break:break-word}
     td.num{float:right;width:auto;font-weight:700}
     td.name{font-size:17.5px;line-height:1.35}
-    td.reg{white-space:normal;word-break:break-all;font-size:14px}
+    td.reg{white-space:normal;word-break:break-all;font-size:13.5px}
     td.reg::before{content:"Reg: ";color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-weight:600}
     td.phone{white-space:normal;margin-top:2px}
     td.phone::before{content:"Simu: ";color:var(--muted);font-weight:600}
-    td.act{display:inline-block;text-align:left;margin:9px 10px 0 0}
-    td.pc{display:inline-block;text-align:left;margin-top:9px}
+    td.act{display:inline-block;text-align:left;margin:10px 10px 0 0}
+    td.pc{display:inline-block;text-align:left;margin-top:10px}
   }
 </style>
 </head>
 <body>
 <header>
+  <img class="logo" src="logo.png" alt="Moshi Co-operative University" />
   <div class="badge">Moshi Co-operative University</div>
   <h1>BBICT I &mdash; Orodha ya Wanafunzi</h1>
   <div class="sub">First Semester 2026/2027 &middot; Taarifa ya Upangaji wa Vikundi</div>
+  <div class="stats">
+    <div class="stat"><b>145</b>Wanafunzi</div>
+    <div class="stat"><b>15</b>Vikundi</div>
+    <div class="stat"><b>Nov 2026</b>Msimu wa Kwanza</div>
+  </div>
 </header>
 
+<div class="topbar">
 <nav class="tabs">
   <a class="active" href="index.html">&#128203; Orodha ya Wanafunzi</a>
   <a href="groups.html">&#128101; Vikundi (Groups)</a>
 </nav>
-
+</div>
 <main>
   <div class="actions">
     <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSchfe0p_32rOMpHuZdbXM5EMvib3oBFC1MgcLljJqMnmx0BfQ/viewform?usp=pp_url&entry.1091080421=Jina+langu+halipo+kwenye+orodha+%28My+name+is+missing%29" target="_blank" rel="noopener">&#10133; Jisajili (Sipo kwenye Orodha)</a>
