@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0b6b3a" />
+<link rel="icon" type="image/png" href="logo.png" />
+<title>BBICT I &mdash; Timetable (Draft 2)</title>
+<style>
+  :root{
+    --green:#0b6b3a; --green2:#12864a; --emerald:#10b981; --ink:#0f1f17; --muted:#64756b;
+    --line:#e3eae6; --bg:#f0f6f2; --card:#ffffff; --amber:#fff6dc; --amberb:#f0cf85;
+    --amberl:#d99b1a; --amberink:#6b4a00;
+    --shadow:0 10px 30px rgba(15,42,29,.08); --shadow-lg:0 18px 46px rgba(15,42,29,.14);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:
+      radial-gradient(900px 420px at 8% -8%, #dbeee3 0%, transparent 60%),
+      radial-gradient(900px 420px at 100% 0%, #e2f3ea 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);line-height:1.6;font-size:17px;-webkit-text-size-adjust:100%;
+    -webkit-font-smoothing:antialiased}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  header{position:relative;overflow:hidden;color:#fff;text-align:center;padding:44px 18px 40px;
+    background:
+      radial-gradient(700px 300px at 15% -20%, rgba(255,255,255,.18), transparent 60%),
+      radial-gradient(600px 280px at 90% 10%, rgba(16,185,129,.38), transparent 60%),
+      linear-gradient(135deg,#064e2c 0%,#0b6b3a 48%,#12864a 100%)}
+  .logo{width:82px;height:82px;object-fit:contain;background:#fff;border-radius:22px;
+    padding:9px;box-shadow:0 12px 30px rgba(0,0,0,.30);display:block;margin:0 auto 16px}
+  .badge{display:inline-block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+    padding:7px 16px;border-radius:999px;margin-bottom:14px;font-weight:700;backdrop-filter:blur(6px)}
+  header h1{margin:0;font-size:clamp(26px,6vw,40px);line-height:1.15;font-weight:800;letter-spacing:-.02em}
+  header .sub{opacity:.93;margin-top:10px;font-size:16.5px}
+  .stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+    padding:9px 18px;border-radius:14px;font-size:13px;font-weight:600;letter-spacing:.02em;
+    backdrop-filter:blur(6px);min-width:96px}
+  .stat b{display:block;font-size:20px;line-height:1.25;letter-spacing:0}
+  .topbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
+    background:rgba(240,246,242,.88);border-bottom:1px solid rgba(226,234,229,.9)}
+  nav.tabs{max-width:1180px;margin:0 auto;padding:12px 14px;display:flex;gap:8px;flex-wrap:wrap}
+  nav.tabs a{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:999px;
+    text-decoration:none;font-weight:700;font-size:15px;color:var(--muted);background:#fff;
+    border:1px solid var(--line);box-shadow:0 2px 8px rgba(15,42,29,.05);transition:.18s}
+  nav.tabs a:hover{color:var(--green);transform:translateY(-1px);box-shadow:0 8px 18px rgba(15,42,29,.10)}
+  nav.tabs a.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;
+    border-color:transparent;box-shadow:0 8px 20px rgba(11,107,58,.30)}
+  main{max-width:1180px;margin:0 auto;padding:24px 14px 40px}
+  .intro{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px 18px;
+    margin:0 0 16px;box-shadow:var(--shadow);font-size:15.5px;animation:rise .45s ease both}
+  .intro b{color:var(--green)}
+  .intro .ien{color:var(--muted);font-size:13px;margin-top:8px;padding-top:8px;
+    border-top:1px dashed var(--line)}
+  .ttwrap{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:auto;
+    box-shadow:var(--shadow);animation:rise .45s .06s ease both}
+  table.tt{border-collapse:collapse;width:100%;min-width:1020px;font-size:14px}
+  table.tt thead th{position:sticky;top:0;z-index:2;background:linear-gradient(180deg,#0b6b3a,#0d7a42);
+    color:#fff;text-align:left;padding:12px 12px;font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;white-space:nowrap;font-weight:700}
+  table.tt thead th.ttime{width:96px}
+  table.tt th.ttime{background:#f4faf6;color:var(--green);border-top:1px solid var(--line);
+    padding:10px 12px;vertical-align:top;font-variant-numeric:tabular-nums;white-space:nowrap;
+    position:sticky;left:0;z-index:1}
+  table.tt th.ttime b{display:block;font-size:14px}
+  table.tt th.ttime span{color:var(--muted);font-weight:600;font-size:12px}
+  table.tt td{border-top:1px solid var(--line);border-left:1px solid var(--line);
+    padding:9px 10px;vertical-align:top;width:calc((100% - 96px)/5)}
+  table.tt td.free{background:repeating-linear-gradient(45deg,#fbfdfc,#fbfdfc 8px,#f5f9f7 8px,#f5f9f7 16px)}
+  .cls{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);
+    border-radius:12px;padding:9px 10px;box-shadow:0 2px 8px rgba(15,42,29,.05)}
+  td.free .cls{display:none}
+  .cline{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .ccode{font-weight:800;font-size:12.5px;letter-spacing:.03em;color:var(--green)}
+  .ctag{font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    padding:2px 7px;border-radius:999px}
+  .ctag.lecture{background:#e6f4ea;color:#0b6b3a}
+  .ctag.practical{background:#fff6dc;color:#8a5a00}
+  .ctitle{font-weight:700;font-size:13px;line-height:1.3;margin-top:3px}
+  .cwho{color:#3c544a;font-size:11.5px;margin-top:4px}
+  .cwhere{color:var(--muted);font-size:11px;margin-top:2px}
+  .cwhere:before{content:"\1F4CD";margin-right:4px}
+  .caud{color:#8b9a91;font-size:10.5px;margin-top:3px;line-height:1.3}
+  .ctime{font-weight:800;font-size:11.5px;color:var(--green);margin-bottom:3px;letter-spacing:.02em}
+  .daycards{display:none}
+  .daycard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 16px;
+    margin:0 0 12px;box-shadow:var(--shadow)}
+  .dayhead{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+  .dayhead b{font-size:17px;color:var(--green)}
+  .dayhead span{color:var(--muted);font-size:13px;font-weight:600}
+  .dlist{display:grid;gap:9px}
+  .dlist .cls{border-left-width:4px}
+  .note{color:var(--muted);font-size:13.5px;margin:16px 2px 0}
+  footer{text-align:center;color:var(--muted);font-size:14.5px;padding:26px 14px 48px;
+    border-top:1px solid rgba(226,234,229,.9);margin-top:28px}
+  footer strong{color:var(--green)}
+  @media (max-width:900px){
+    .ttwrap{display:none}
+    .daycards{display:block}
+    header{padding:34px 16px 30px}
+    .logo{width:68px;height:68px;border-radius:18px}
+    .stat{padding:8px 14px;min-width:84px}
+    .stat b{font-size:18px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="logo.png" alt="Moshi Co-operative University" />
+  <div class="badge">Moshi Co-operative University</div>
+  <h1>BBICT I &mdash; Timetable</h1>
+  <div class="sub">Second Draft &middot; First Semester 2026/2027</div>
+  <div class="stats">
+    <div class="stat"><b>18</b>Vipindi (Classes)</div>
+    <div class="stat"><b>5</b>Siku (Days)</div>
+    <div class="stat"><b>7</b>Kozi (Courses)</div>
+  </div>
+</header>
+
+<div class="topbar">
+<nav class="tabs">
+  <a href="index.html">&#128203; Orodha ya Wanafunzi</a>
+  <a class="active" href="timetable.html">&#128197; Timetable</a>
+  <a href="groups.html">&#128101; Vikundi (Groups)</a>
+</nav>
+</div>
+<main>
+  <div class="intro">
+    <div><b>Draft 2:</b> ratiba ya wiki kwa BBICT I. Vipindi vyote vinaonyesha muda, mhadhiri na chumba.</div>
+    <div class="ien">Draft 2 weekly schedule for BBICT I &middot; tap/scroll the table on desktop; on mobile each day is listed separately.</div>
+  </div>
+  <section class="ttwrap">
+    <table class="tt">
+      <thead><tr><th class="ttime">Saa (Time)</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr></thead>
+      <tbody>
+      <tr><th class="ttime"><b>07:00</b><span>08:00</span></th><td class="busy"><div class="cls"><div class="cline"><span class="ccode">CSC 103</span><span class="ctag practical">Practical</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">—</div><div class="caud">BSc.CS I, BBICT I, BSc.DS I</div></div></td><td class="free"></td><td class="free"></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">ICT 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Fundamentals of ICT</div><div class="cwho">DR. MAGOTI S.</div><div class="cwhere">NYERERE HALL</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">MGT 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Principles of Management</div><div class="cwho">MR. KARONGO G., MS. ASHA I.</div><div class="cwhere">USHIRIKA LECTURE THEATRE</div><div class="caud">BHRM I, BCED I, BBICT I, BCM I, BACM I, BEEM I</div></div></td></tr>
+<tr><th class="ttime"><b>08:10</b><span>09:10</span></th><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td></tr>
+<tr><th class="ttime"><b>09:20</b><span>10:20</span></th><td class="free"></td><td class="free"></td><td class="free"></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">ICT 104</span><span class="ctag practical">Practical</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">—</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">MGT 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Communication Skills</div><div class="cwho">MS. OLOMI N.</div><div class="cwhere">LECTURE THEATRE 4</div><div class="caud">BAT I, BBICT I</div></div></td></tr>
+<tr><th class="ttime"><b>10:30</b><span>11:30</span></th><td class="free"></td><td class="free"></td><td class="free"></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">COP 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Co-operative Philosophy</div><div class="cwho">DR. ABSANTO G., MS. KAJE L.</div><div class="cwhere">G. KAHAMA HALL</div><div class="caud">BPSCM I, BSW I, BEC I, BBICT I</div></div></td><td class="free"></td></tr>
+<tr><th class="ttime"><b>11:40</b><span>12:40</span></th><td class="busy"><div class="cls"><div class="cline"><span class="ccode">MGT 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Communication Skills</div><div class="cwho">MS. OLOMI N.</div><div class="cwhere">SR 7</div><div class="caud">BAT I, BBICT I</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">MGT 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Principles of Management</div><div class="cwho">MR. KARONGO G., MS. ASHA I.</div><div class="cwhere">USHIRIKA LECTURE THEATRE</div><div class="caud">BHRM I, BCED I, BBICT I, BCM I, BACM I, BEEM I</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">ICT 104</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">LECTURE ROOM 2 – WAZALENDO COMPLEX</div></div></td><td class="free"></td><td class="free"></td></tr>
+<tr><th class="ttime"><b>12:50</b><span>13:50</span></th><td class="busy"><div class="cls"><div class="cline"><span class="ccode">BMS 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Business Mathematics and Statistics</div><div class="cwho">MR. JOEL E., MS. REHEMA R. M.</div><div class="cwhere">G. KAHAMA HALL</div><div class="caud">BACM I, BPSCM I, BBICT I</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">ICT 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Fundamentals of ICT</div><div class="cwho">DR. MAGOTI S.</div><div class="cwhere">LECTURE THEATRE 1</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">BMS 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Business Mathematics and Statistics</div><div class="cwho">MR. JOEL E., MS. REHEMA R. M.</div><div class="cwhere">USHIRIKA LECTURE THEATRE</div><div class="caud">BACM I, BPSCM I, BBICT I</div></div></td><td class="free"></td><td class="free"></td></tr>
+<tr><th class="ttime"><b>14:00</b><span>15:00</span></th><td class="busy"><div class="cls"><div class="cline"><span class="ccode">MGT 101</span><span class="ctag practical">Practical</span></div><div class="ctitle">Principles of Management</div><div class="cwho">MR. KARONGO G., MS. ASHA I.</div><div class="cwhere">—</div><div class="caud">BHRM I, BCED I, BBICT I, BCM I, BACM I, BEEM I</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">COP 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Co-operative Philosophy</div><div class="cwho">DR. ABSANTO G., MS. KAJE L.</div><div class="cwhere">USHIRIKA LECTURE THEATRE</div><div class="caud">BPSCM I, BSW I, BEC I, BBICT I</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">CSC 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">NYERERE HALL</div><div class="caud">BSc.CS I, BBICT I, BSc.DS I</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">ICT 103</span><span class="ctag practical">Practical</span></div><div class="ctitle">Fundamentals of ICT</div><div class="cwho">DR. MAGOTI S.</div><div class="cwhere">—</div></div></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">CSC 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">LECTURE THEATRE 4</div><div class="caud">BSc.CS I, BBICT I, BSc.DS I</div></div></td></tr>
+<tr><th class="ttime"><b>15:10</b><span>16:10</span></th><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td><td class="busy"><div class="cls"><div class="cline"><span class="ccode">ICT 104</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">SR 1</div></div></td></tr>
+<tr><th class="ttime"><b>16:20</b><span>17:20</span></th><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td></tr>
+<tr><th class="ttime"><b>17:30</b><span>18:30</span></th><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td></tr>
+<tr><th class="ttime"><b>18:40</b><span>19:40</span></th><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td></tr>
+<tr><th class="ttime"><b>19:50</b><span>20:50</span></th><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td><td class="free"></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <div class="daycards">
+    <section class="daycard"><div class="dayhead"><b>Monday</b><span>4 vipindi</span></div><div class="dlist"><div class="cls"><div class="ctime">07:00 – 08:00</div><div class="cline"><span class="ccode">CSC 103</span><span class="ctag practical">Practical</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">—</div><div class="caud">BSc.CS I, BBICT I, BSc.DS I</div></div><div class="cls"><div class="ctime">11:40 – 12:40</div><div class="cline"><span class="ccode">MGT 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Communication Skills</div><div class="cwho">MS. OLOMI N.</div><div class="cwhere">SR 7</div><div class="caud">BAT I, BBICT I</div></div><div class="cls"><div class="ctime">12:50 – 13:50</div><div class="cline"><span class="ccode">BMS 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Business Mathematics and Statistics</div><div class="cwho">MR. JOEL E., MS. REHEMA R. M.</div><div class="cwhere">G. KAHAMA HALL</div><div class="caud">BACM I, BPSCM I, BBICT I</div></div><div class="cls"><div class="ctime">14:00 – 15:00</div><div class="cline"><span class="ccode">MGT 101</span><span class="ctag practical">Practical</span></div><div class="ctitle">Principles of Management</div><div class="cwho">MR. KARONGO G., MS. ASHA I.</div><div class="cwhere">—</div><div class="caud">BHRM I, BCED I, BBICT I, BCM I, BACM I, BEEM I</div></div></div></section>
+<section class="daycard"><div class="dayhead"><b>Tuesday</b><span>3 vipindi</span></div><div class="dlist"><div class="cls"><div class="ctime">11:40 – 12:40</div><div class="cline"><span class="ccode">MGT 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Principles of Management</div><div class="cwho">MR. KARONGO G., MS. ASHA I.</div><div class="cwhere">USHIRIKA LECTURE THEATRE</div><div class="caud">BHRM I, BCED I, BBICT I, BCM I, BACM I, BEEM I</div></div><div class="cls"><div class="ctime">12:50 – 13:50</div><div class="cline"><span class="ccode">ICT 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Fundamentals of ICT</div><div class="cwho">DR. MAGOTI S.</div><div class="cwhere">LECTURE THEATRE 1</div></div><div class="cls"><div class="ctime">14:00 – 15:00</div><div class="cline"><span class="ccode">COP 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Co-operative Philosophy</div><div class="cwho">DR. ABSANTO G., MS. KAJE L.</div><div class="cwhere">USHIRIKA LECTURE THEATRE</div><div class="caud">BPSCM I, BSW I, BEC I, BBICT I</div></div></div></section>
+<section class="daycard"><div class="dayhead"><b>Wednesday</b><span>3 vipindi</span></div><div class="dlist"><div class="cls"><div class="ctime">11:40 – 12:40</div><div class="cline"><span class="ccode">ICT 104</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">LECTURE ROOM 2 – WAZALENDO COMPLEX</div></div><div class="cls"><div class="ctime">12:50 – 13:50</div><div class="cline"><span class="ccode">BMS 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Business Mathematics and Statistics</div><div class="cwho">MR. JOEL E., MS. REHEMA R. M.</div><div class="cwhere">USHIRIKA LECTURE THEATRE</div><div class="caud">BACM I, BPSCM I, BBICT I</div></div><div class="cls"><div class="ctime">14:00 – 15:00</div><div class="cline"><span class="ccode">CSC 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">NYERERE HALL</div><div class="caud">BSc.CS I, BBICT I, BSc.DS I</div></div></div></section>
+<section class="daycard"><div class="dayhead"><b>Thursday</b><span>4 vipindi</span></div><div class="dlist"><div class="cls"><div class="ctime">07:00 – 08:00</div><div class="cline"><span class="ccode">ICT 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Fundamentals of ICT</div><div class="cwho">DR. MAGOTI S.</div><div class="cwhere">NYERERE HALL</div></div><div class="cls"><div class="ctime">09:20 – 10:20</div><div class="cline"><span class="ccode">ICT 104</span><span class="ctag practical">Practical</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">—</div></div><div class="cls"><div class="ctime">10:30 – 11:30</div><div class="cline"><span class="ccode">COP 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Co-operative Philosophy</div><div class="cwho">DR. ABSANTO G., MS. KAJE L.</div><div class="cwhere">G. KAHAMA HALL</div><div class="caud">BPSCM I, BSW I, BEC I, BBICT I</div></div><div class="cls"><div class="ctime">14:00 – 15:00</div><div class="cline"><span class="ccode">ICT 103</span><span class="ctag practical">Practical</span></div><div class="ctitle">Fundamentals of ICT</div><div class="cwho">DR. MAGOTI S.</div><div class="cwhere">—</div></div></div></section>
+<section class="daycard"><div class="dayhead"><b>Friday</b><span>4 vipindi</span></div><div class="dlist"><div class="cls"><div class="ctime">07:00 – 08:00</div><div class="cline"><span class="ccode">MGT 101</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Principles of Management</div><div class="cwho">MR. KARONGO G., MS. ASHA I.</div><div class="cwhere">USHIRIKA LECTURE THEATRE</div><div class="caud">BHRM I, BCED I, BBICT I, BCM I, BACM I, BEEM I</div></div><div class="cls"><div class="ctime">09:20 – 10:20</div><div class="cline"><span class="ccode">MGT 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Communication Skills</div><div class="cwho">MS. OLOMI N.</div><div class="cwhere">LECTURE THEATRE 4</div><div class="caud">BAT I, BBICT I</div></div><div class="cls"><div class="ctime">14:00 – 15:00</div><div class="cline"><span class="ccode">CSC 103</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">LECTURE THEATRE 4</div><div class="caud">BSc.CS I, BBICT I, BSc.DS I</div></div><div class="cls"><div class="ctime">15:10 – 16:10</div><div class="cline"><span class="ccode">ICT 104</span><span class="ctag lecture">Lecture</span></div><div class="ctitle">Introduction to Computer Programming</div><div class="cwho">MR. NGAHEMELWA J.</div><div class="cwhere">SR 1</div></div></div></section>
+  </div>
+  <p class="note">Draft 2 &middot; Timetable generated with FET 7.12.0 on 11/8/26 4:24 PM. Ratiba inaweza kubadilika.</p>
+</main>
+
+<footer>
+  <strong>BBICT I</strong> &middot; Moshi Co-operative University &middot; Timetable (Draft 2)
+</footer>
+</body>
+</html>
