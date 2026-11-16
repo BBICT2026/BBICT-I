@@ -176,7 +176,18 @@
     var btn=card.querySelector('.dayhead'),list=card.querySelector('.dlist');
     if(!btn||!list)return;
     btn.addEventListener('click',function(){
-      var open=card.classList.toggle('open');
+      var open=!card.classList.contains('open');
+      if(open){
+        var others=document.querySelectorAll('.daycard.open');
+        for(var k=0;k<others.length;k++){
+          if(others[k]===card)continue;
+          others[k].classList.remove('open');
+          var ol=others[k].querySelector('.dlist'), ob=others[k].querySelector('.dayhead');
+          if(ol)ol.hidden=true;
+          if(ob)ob.setAttribute('aria-expanded','false');
+        }
+      }
+      card.classList.toggle('open',open);
       list.hidden=!open;
       btn.setAttribute('aria-expanded',open?'true':'false');
     });

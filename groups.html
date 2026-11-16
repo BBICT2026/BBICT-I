@@ -178,7 +178,12 @@
   for(var i=0;i<hs.length;i++){
     hs[i].addEventListener('click',function(){
       if(this.classList.contains('static'))return;
-      this.parentElement.classList.toggle('open');
+      var it=this.parentElement, willOpen=!it.classList.contains('open');
+      if(willOpen){
+        var all=document.querySelectorAll('.mitem.open');
+        for(var k=0;k<all.length;k++){ if(all[k]!==it) all[k].classList.remove('open'); }
+      }
+      it.classList.toggle('open');
     });
   }
   var groups=document.querySelectorAll('details.grp');
