@@ -104,7 +104,8 @@
     display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;letter-spacing:.04em}
   .emptycopy b{font-size:15.5px;color:var(--ink)}
   .emptycopy p{font-size:14px;color:var(--muted);margin:4px 0 0}
-  .filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 12px}
+  .filters{display:flex;gap:7px;flex-wrap:nowrap;margin:0 0 12px;overflow-x:auto;padding-bottom:4px}
+  .fsep{width:1px;height:24px;background:var(--line);margin:0 5px;flex:none}
   .fchip{font:inherit;font-size:13.5px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;
     max-width:190px;overflow:hidden;text-overflow:ellipsis;
     border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
@@ -143,6 +144,8 @@
   @media (max-width:860px){
     .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .submitgrid{grid-template-columns:1fr}
+    .filters{flex-wrap:wrap;overflow:visible}
+    .fsep{display:none}
   }
   @media (max-width:520px){
     header{padding:34px 16px 30px}
@@ -175,10 +178,10 @@
 
 <div class="topbar">
 <nav class="tabs">
-  <a href="index.html?v=10">&#128203; Orodha ya Wanafunzi</a>
-  <a href="timetable.html?v=10">&#128197; Timetable</a>
-  <a href="groups.html?v=10">&#128101; Vikundi (Groups)</a>
-  <a class="active" href="notes.html?v=10">&#128218; Notes</a>
+  <a href="index.html?v=11">&#128203; Orodha ya Wanafunzi</a>
+  <a href="timetable.html?v=11">&#128197; Timetable</a>
+  <a href="groups.html?v=11">&#128101; Vikundi (Groups)</a>
+  <a class="active" href="notes.html?v=11">&#128218; Notes</a>
 </nav>
 </div>
 <main>
@@ -198,8 +201,7 @@
       <div class="stitle"><h2>Group Works</h2><p>Discussion notes submitted by students</p></div>
       <span class="count">1 files</span>
     </div>
-    <div class="filters" data-kind="group"><button class="fchip active" data-f="all">All groups</button><button class="fchip" data-f="6">Group 6</button></div>
-    <div class="filters" data-kind="lecture"><button class="fchip active" data-lecture="all">All lectures</button><button class="fchip" data-lecture="Co-operative Philosophy" title="Co-operative Philosophy">Co-operative Philosophy</button></div>
+    <div class="filters"><button class="fchip active" data-f="all">All groups</button><button class="fchip" data-f="6">Group 6</button><span class="fsep"></span><button class="fchip active" data-lecture="all">All lectures</button><button class="fchip" data-lecture="Co-operative Philosophy" title="Co-operative Philosophy">Co-operative Philosophy</button></div>
     <div class="grid"><article class="nbcard" data-group="6" data-lecture="Co-operative Philosophy"><div class="nbtop"><span class="nbfmt pdf">PDF</span><span class="gwall">Group 6</span></div><h3>HISTORY OF COOPERATIVES</h3><div class="nblecture" title="Co-operative Philosophy">Co-operative Philosophy</div><div class="nbactions"><a class="nbbtn primary" href="notes/groups/history_of_cooperatives_g6.pdf" target="_blank" rel="noopener">Read online</a><a class="nbbtn" href="notes/groups/history_of_cooperatives_g6.pdf" download>Download &#8595;</a></div></article></div>
   </section>
 
@@ -236,8 +238,8 @@
       for(var k=0;k<all.length;k++)all[k].classList.remove('active');
       chip.classList.add('active');
       var sec=this.closest('.block');
-      var g=sec.querySelector('.filters[data-kind="group"] .fchip.active');
-      var l=sec.querySelector('.filters[data-kind="lecture"] .fchip.active');
+      var g=this.querySelector('.fchip.active[data-f]');
+      var l=this.querySelector('.fchip.active[data-lecture]');
       var gf=g?g.getAttribute('data-f'):'all';
       var lf=l?l.getAttribute('data-lecture'):'all';
       var cards=sec.querySelectorAll('.nbcard');
