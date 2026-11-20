@@ -49,17 +49,32 @@
   nav.tabs a:hover{color:var(--green);transform:translateY(-1px);box-shadow:0 8px 18px rgba(15,42,29,.10)}
   nav.tabs a.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;
     border-color:transparent;box-shadow:0 8px 20px rgba(11,107,58,.30)}
-  main{max-width:1180px;margin:0 auto;padding:24px 14px 40px}
-  .intro{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px 18px;
-    margin:0 0 20px;box-shadow:var(--shadow);font-size:15.5px}
-  .intro b{color:var(--green)}
-  .intro .ien{color:var(--muted);font-size:13px;margin-top:8px;padding-top:8px;
-    border-top:1px dashed var(--line)}
-  h2{font-size:21px;margin:26px 2px 12px;color:var(--green)}
-  h2 .h2sub{color:var(--muted);font-size:13px;font-weight:600;margin-left:8px}
+  main{max-width:1180px;margin:0 auto;padding:24px 14px 30px}
+  .lead{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 22px;
+    box-shadow:var(--shadow);margin-bottom:18px;animation:rise .4s ease both}
+  .lead h2{font-size:21px;margin:0 0 6px;color:var(--green)}
+  .lead p{color:var(--muted);font-size:15px;margin:0;max-width:700px}
+  .leadmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .leadmeta span{background:#f1f8f4;border:1px solid var(--line);border-radius:999px;
+    padding:5px 12px;font-size:12.5px;font-weight:700;color:var(--green)}
+  .jumps{display:grid;gap:7px;min-width:190px}
+  .jumps a{text-decoration:none;font-size:13.5px;font-weight:700;color:var(--green);
+    background:#f6faf8;border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+  .jumps a:hover{background:#eaf5ef}
+  .block{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 22px;
+    box-shadow:var(--shadow);margin:0 0 18px;animation:rise .45s ease both;scroll-margin-top:74px}
+  .shead{display:flex;align-items:center;gap:13px;margin-bottom:16px;
+    padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .sicon{width:42px;height:42px;flex:none;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--emerald));
+    color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;letter-spacing:.03em}
+  .shead .stitle{flex:1}
+  .shead h2{font-size:20px;margin:0;color:var(--ink)}
+  .shead p{font-size:13.5px;color:var(--muted);margin:2px 0 0}
+  .count{font-size:12px;font-weight:800;color:var(--green);background:#eaf5ef;
+    border:1px solid #cfe7d9;padding:5px 12px;border-radius:999px;white-space:nowrap}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
-  .nbcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;
-    box-shadow:var(--shadow);animation:rise .4s ease both}
+  .nbcard{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:#fbfdfc}
   .nbtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .nbfmt{font-size:10px;font-weight:800;letter-spacing:.1em;padding:3px 9px;border-radius:999px;
     background:#e6f4ea;color:#0b6b3a}
@@ -76,29 +91,56 @@
     border:1px solid var(--line);color:var(--green);background:#fff}
   .nbbtn:hover{box-shadow:0 6px 14px rgba(15,42,29,.10)}
   .nbbtn.primary{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;border-color:transparent}
-  .empty{background:#fff;border:1px dashed #c9d9cf;border-radius:18px;padding:20px;
-    color:var(--muted);font-size:15px;box-shadow:var(--shadow)}
-  .filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 2px 12px}
+  .emptycard{display:flex;gap:15px;align-items:flex-start;border:1px dashed #c9d9cf;
+    background:#f9fcfa;border-radius:16px;padding:18px}
+  .emptymark{width:58px;height:58px;flex:none;border-radius:15px;background:#eaf5ef;color:var(--green);
+    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;letter-spacing:.04em}
+  .emptycopy b{font-size:15.5px;color:var(--ink)}
+  .emptycopy p{font-size:14px;color:var(--muted);margin:4px 0 0}
+  .filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 12px}
   .fchip{font:inherit;font-size:13px;font-weight:700;padding:6px 13px;border-radius:999px;
     border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
   .fchip.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;border-color:transparent}
-  .formwrap{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
-    box-shadow:var(--shadow);height:720px}
-  .formwrap iframe{width:100%;height:100%;border:0;display:block}
-  .formempty{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;
-    box-shadow:var(--shadow)}
-  .formempty p{color:var(--muted);font-size:14.5px;margin:6px 0 0}
-  .nbhint{font-size:13.5px;color:var(--muted);margin:10px 2px}
-  .nbhint a{color:var(--green);font-weight:700}
+  .submitgrid{display:grid;grid-template-columns:310px 1fr;gap:18px;align-items:start}
+  .howto{border:1px solid var(--line);border-radius:16px;background:#fbfdfc;padding:18px}
+  .howto h3{font-size:16px;margin:0 0 12px;color:var(--green)}
+  .steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+  .steps li{display:flex;gap:11px;align-items:flex-start}
+  .steps .num{width:26px;height:26px;flex:none;border-radius:50%;background:#eaf5ef;color:var(--green);
+    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .steps b{font-size:14px}
+  .steps p{font-size:13px;color:var(--muted);margin:2px 0 0}
+  .actions{display:grid;gap:8px;margin-top:18px}
+  .bigbtn{display:flex;align-items:center;justify-content:center;text-decoration:none;
+    font-size:14px;font-weight:700;padding:11px 14px;border-radius:12px;text-align:center;
+    border:1px solid var(--line);background:#fff;color:var(--green)}
+  .bigbtn.primary{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;border-color:transparent}
+  .bigbtn:hover{box-shadow:0 8px 18px rgba(15,42,29,.12)}
+  .fine{font-size:12.5px;color:var(--muted);margin:14px 0 0}
+  .formpanel{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+  .formbar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f4faf6;
+    border-bottom:1px solid var(--line);color:var(--green);font-size:13px;font-weight:700}
+  .fdot{width:8px;height:8px;border-radius:50%;background:var(--emerald)}
+  .formpanel iframe{display:block;width:100%;height:680px;border:0}
+  .formempty{border:1px dashed #c9d9cf;border-radius:16px;padding:20px;color:var(--muted)}
   footer{text-align:center;color:var(--muted);font-size:14.5px;padding:26px 14px 48px;
-    border-top:1px solid rgba(226,234,229,.9);margin-top:28px}
+    border-top:1px solid rgba(226,234,229,.9);margin-top:10px}
   footer strong{color:var(--green)}
-  @media (max-width:700px){
+  @media (max-width:860px){
+    .lead{grid-template-columns:1fr}
+    .jumps{grid-template-columns:repeat(3,1fr);min-width:0}
+    .submitgrid{grid-template-columns:1fr}
+    .formpanel iframe{height:600px}
+  }
+  @media (max-width:520px){
+    .jumps{grid-template-columns:1fr}
     header{padding:34px 16px 30px}
     .logo{width:68px;height:68px;border-radius:18px}
     .stat{padding:8px 14px;min-width:84px}
     .stat b{font-size:18px}
-    .formwrap{height:620px}
+    .block,.lead{padding:16px}
+    .shead h2{font-size:18px}
+    .count{font-size:11px}
   }
 </style>
 </head>
@@ -117,27 +159,66 @@
 
 <div class="topbar">
 <nav class="tabs">
-  <a href="index.html?v=4">&#128203; Orodha ya Wanafunzi</a>
-  <a href="timetable.html?v=4">&#128197; Timetable</a>
-  <a href="groups.html?v=4">&#128101; Vikundi (Groups)</a>
-  <a class="active" href="notes.html?v=4">&#128218; Notes</a>
+  <a href="index.html?v=5">&#128203; Orodha ya Wanafunzi</a>
+  <a href="timetable.html?v=5">&#128197; Timetable</a>
+  <a href="groups.html?v=5">&#128101; Vikundi (Groups)</a>
+  <a class="active" href="notes.html?v=5">&#128218; Notes</a>
 </nav>
 </div>
 <main>
-  <div class="intro">
-    <div><b>Notes &amp; group works</b> &mdash; PDF notes can be read online or downloaded. Word (DOC/DOCX) and PowerPoint (PPT/PPTX) files are available to download.</div>
-    <div class="ien">Group works show the group they came from. Files are checked before being added here.</div>
-  </div>
+  <section class="lead">
+    <div>
+      <h2>Everything for BBICT I, in one place</h2>
+      <p>Class notes are added for the courses. Group works come from students through the submission form, and each one is labelled with the group it came from.</p>
+      <div class="leadmeta"><span>PDF &rarr; read online or download</span><span>DOC / PPT &rarr; download</span></div>
+    </div>
+    <div class="jumps">
+      <a href="#classnotes">Jump to class notes</a>
+      <a href="#groupworks">Jump to group works</a>
+      <a href="#submit">Submit your notes</a>
+    </div>
+  </section>
 
-  <h2>Class Notes <span class="h2sub"> lecture materials &amp; study notes</span></h2>
-  <div class="grid"><div class="empty">No class notes have been added yet.</div></div>
+  <section class="block" id="classnotes">
+    <div class="shead">
+      <div class="sicon">NOTES</div>
+      <div class="stitle"><h2>Class Notes</h2><p>Lecture materials and study notes</p></div>
+      <span class="count">0 files</span>
+    </div>
+    <div class="emptycard"><div class="emptymark">PDF</div><div class="emptycopy"><b>No class notes yet</b><p>Lecture notes and study materials will appear here once they are added. PDFs can be read online or downloaded; Word and PowerPoint files can be downloaded.</p></div></div>
+  </section>
 
-  <h2>Group Works <span class="h2sub"> discussion notes submitted by groups</span></h2>
-  
-  <div class="grid" id="groupworks"><div class="empty">No group works have been uploaded yet.</div></div>
+  <section class="block" id="groupworks">
+    <div class="shead">
+      <div class="sicon">GROUPS</div>
+      <div class="stitle"><h2>Group Works</h2><p>Discussion notes submitted by students</p></div>
+      <span class="count">0 files</span>
+    </div>
+    
+    <div class="emptycard"><div class="emptymark">G1-15</div><div class="emptycopy"><b>No group works yet</b><p>Approved discussion notes will appear here with the group they came from. You can submit notes using the form below.</p></div></div>
+  </section>
 
-  <h2>Submit Group Notes <span class="h2sub"> anyone can submit &mdash; choose your group</span></h2>
-  <div class="formwrap"><iframe title="Submit group notes" src="https://docs.google.com/forms/d/e/1FAIpQLSfkrUel2bfhWZNTiqu5xwn-GSyILbzSIpGXQ55WRd1VY1UcUA/viewform?usp=send_form">Loading form&hellip;</iframe></div><p class="nbhint"><a href="https://forms.gle/uL5zA2uT4PR4EnUBA" target="_blank" rel="noopener">Open form in a new tab</a> &middot; <a href="https://drive.google.com/drive/folders/1AiSEexaYiQ-s6ObW0QTdJ1cQ6c_gXm9xkzjP9wl-cib6eBfZEqjr_VoXOe0Kfoy-_KJKsMLo?usp=sharing" target="_blank" rel="noopener">Browse submitted files (Google Drive)</a></p><p class="nbhint">Uploading a file requires signing in with a Google account. Submissions are reviewed before they appear under Group Works.</p>
+  <section class="block submit" id="submit">
+    <div class="shead">
+      <div class="sicon">SEND</div>
+      <div class="stitle"><h2>Submit Group Notes</h2><p>Anyone can submit &mdash; choose your group and subject</p></div>
+      <span class="count">Google Form</span>
+    </div>
+    <div class="submitgrid">
+      <aside class="howto">
+        <h3>How it works</h3>
+        <ol class="steps">
+          <li><span class="num">1</span><div><b>Open the form</b><p>Use the button below; it opens in a new tab.</p></div></li>
+          <li><span class="num">2</span><div><b>Fill in your details</b><p>Registration number, group, subject and topic.</p></div></li>
+          <li><span class="num">3</span><div><b>Upload your file</b><p>PDF, Word or PowerPoint. Google sign-in is required.</p></div></li>
+          <li><span class="num">4</span><div><b>Wait for review</b><p>Approved files appear above with a group badge.</p></div></li>
+        </ol>
+        <div class="actions"><a class="bigbtn primary" href="https://forms.gle/uL5zA2uT4PR4EnUBA" target="_blank" rel="noopener">Open submission form &#8599;</a><a class="bigbtn" href="https://drive.google.com/drive/folders/1AiSEexaYiQ-s6ObW0QTdJ1cQ6c_gXm9xkzjP9wl-cib6eBfZEqjr_VoXOe0Kfoy-_KJKsMLo?usp=sharing" target="_blank" rel="noopener">Browse submitted files &#8599;</a></div>
+        <p class="fine">Files are checked before they are published on this page.</p>
+      </aside>
+      <div class="formpanel"><div class="formbar"><span class="fdot"></span>Group notes submission form</div><iframe title="Submit group notes" src="https://docs.google.com/forms/d/e/1FAIpQLSfkrUel2bfhWZNTiqu5xwn-GSyILbzSIpGXQ55WRd1VY1UcUA/viewform?usp=send_form">Loading form&hellip;</iframe></div>
+    </div>
+  </section>
 </main>
 
 <script>
