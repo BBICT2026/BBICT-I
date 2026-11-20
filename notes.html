@@ -37,8 +37,8 @@
   header .sub{opacity:.93;margin-top:10px;font-size:16.5px}
   .stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
   .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
-    padding:9px 18px;border-radius:14px;font-size:13px;font-weight:600;letter-spacing:.02em;
-    backdrop-filter:blur(6px);min-width:96px}
+    padding:10px 20px;border-radius:14px;font-size:13.5px;font-weight:600;letter-spacing:.02em;
+    backdrop-filter:blur(6px);min-width:110px}
   .stat b{display:block;font-size:20px;line-height:1.25;letter-spacing:0}
   .topbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
     background:rgba(240,246,242,.88);border-bottom:1px solid rgba(226,234,229,.9)}
@@ -66,39 +66,42 @@
     box-shadow:var(--shadow);margin:0 0 18px;animation:rise .45s ease both;scroll-margin-top:74px}
   .shead{display:flex;align-items:center;gap:13px;margin-bottom:16px;
     padding-bottom:14px;border-bottom:1px solid var(--line)}
-  .sicon{width:42px;height:42px;flex:none;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--emerald));
-    color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;letter-spacing:.03em}
+  .sicon{width:auto;min-width:64px;height:46px;flex:none;border-radius:13px;padding:0 13px;
+    background:linear-gradient(135deg,var(--green),var(--emerald));
+    color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;
+    font-size:12.5px;letter-spacing:.06em;white-space:nowrap}
   .shead .stitle{flex:1}
   .shead h2{font-size:20px;margin:0;color:var(--ink)}
-  .shead p{font-size:13.5px;color:var(--muted);margin:2px 0 0}
-  .count{font-size:12px;font-weight:800;color:var(--green);background:#eaf5ef;
-    border:1px solid #cfe7d9;padding:5px 12px;border-radius:999px;white-space:nowrap}
+  .shead p{font-size:14px;color:var(--muted);margin:3px 0 0}
+  .count{font-size:13px;font-weight:800;color:var(--green);background:#eaf5ef;
+    border:1px solid #cfe7d9;padding:8px 16px;border-radius:999px;line-height:1.35;
+    text-align:center;white-space:normal;min-width:80px}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
   .nbcard{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:#fbfdfc}
   .nbtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .nbfmt{font-size:10px;font-weight:800;letter-spacing:.1em;padding:3px 9px;border-radius:999px;
-    background:#e6f4ea;color:#0b6b3a}
+  .nbfmt{font-size:11px;font-weight:800;letter-spacing:.08em;padding:5px 12px;border-radius:999px;
+    background:#e6f4ea;color:#0b6b3a;white-space:nowrap}
   .nbfmt.doc{background:#e7efff;color:#1d4ed8}
   .nbfmt.ppt{background:#fff1e0;color:#b45309}
-  .gwall{font-size:12px;font-weight:800;color:#8a5a00;background:#fff6dc;
-    border:1px solid #f0cf85;padding:2px 10px;border-radius:999px}
+  .gwall{font-size:12.5px;font-weight:800;color:#8a5a00;background:#fff6dc;
+    border:1px solid #f0cf85;padding:4px 13px;border-radius:999px;white-space:nowrap}
   .nbcard h3{font-size:16.5px;line-height:1.3;margin:10px 0 0}
   .nbdesc{color:var(--muted);font-size:14px}
   .nbauthor{color:var(--green);font-size:13px;font-weight:700;margin-top:5px}
   .nbactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
   .nbbtn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;
-    font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:999px;
+    font-size:14px;font-weight:700;padding:9px 16px;border-radius:999px;white-space:nowrap;
     border:1px solid var(--line);color:var(--green);background:#fff}
   .nbbtn:hover{box-shadow:0 6px 14px rgba(15,42,29,.10)}
   .nbbtn.primary{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;border-color:transparent}
   .emptycard{display:flex;gap:15px;align-items:flex-start;border:1px dashed #c9d9cf;
     background:#f9fcfa;border-radius:16px;padding:18px}
-  .emptymark{width:58px;height:58px;flex:none;border-radius:15px;background:#eaf5ef;color:var(--green);
-    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;letter-spacing:.04em}
+  .emptymark{width:66px;height:66px;flex:none;border-radius:16px;background:#eaf5ef;color:var(--green);
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;letter-spacing:.04em}
   .emptycopy b{font-size:15.5px;color:var(--ink)}
   .emptycopy p{font-size:14px;color:var(--muted);margin:4px 0 0}
   .filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 12px}
-  .fchip{font:inherit;font-size:13px;font-weight:700;padding:6px 13px;border-radius:999px;
+  .fchip{font:inherit;font-size:13.5px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;
     border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
   .fchip.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;border-color:transparent}
   .submitgrid{display:grid;grid-template-columns:310px 1fr;gap:18px;align-items:start}
@@ -162,10 +165,10 @@
 
 <div class="topbar">
 <nav class="tabs">
-  <a href="index.html?v=7">&#128203; Orodha ya Wanafunzi</a>
-  <a href="timetable.html?v=7">&#128197; Timetable</a>
-  <a href="groups.html?v=7">&#128101; Vikundi (Groups)</a>
-  <a class="active" href="notes.html?v=7">&#128218; Notes</a>
+  <a href="index.html?v=8">&#128203; Orodha ya Wanafunzi</a>
+  <a href="timetable.html?v=8">&#128197; Timetable</a>
+  <a href="groups.html?v=8">&#128101; Vikundi (Groups)</a>
+  <a class="active" href="notes.html?v=8">&#128218; Notes</a>
 </nav>
 </div>
 <main>
