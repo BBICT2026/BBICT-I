@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0b6b3a" />
+<link rel="icon" type="image/png" href="logo.png" />
+<title>BBICT I &mdash; Notes &amp; Group Works</title>
+<style>
+  :root{
+    --green:#0b6b3a; --green2:#12864a; --emerald:#10b981; --ink:#0f1f17; --muted:#64756b;
+    --line:#e3eae6; --bg:#f0f6f2; --card:#ffffff;
+    --shadow:0 10px 30px rgba(15,42,29,.08); --shadow-lg:0 18px 46px rgba(15,42,29,.14);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:
+      radial-gradient(900px 420px at 8% -8%, #dbeee3 0%, transparent 60%),
+      radial-gradient(900px 420px at 100% 0%, #e2f3ea 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);line-height:1.6;font-size:17px;-webkit-text-size-adjust:100%;
+    -webkit-font-smoothing:antialiased}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  header{position:relative;overflow:hidden;color:#fff;text-align:center;padding:44px 18px 40px;
+    background:
+      radial-gradient(700px 300px at 15% -20%, rgba(255,255,255,.18), transparent 60%),
+      radial-gradient(600px 280px at 90% 10%, rgba(16,185,129,.38), transparent 60%),
+      linear-gradient(135deg,#064e2c 0%,#0b6b3a 48%,#12864a 100%)}
+  .logo{width:82px;height:82px;object-fit:contain;background:#fff;border-radius:22px;
+    padding:9px;box-shadow:0 12px 30px rgba(0,0,0,.30);display:block;margin:0 auto 16px}
+  .badge{display:inline-block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+    padding:7px 16px;border-radius:999px;margin-bottom:14px;font-weight:700;backdrop-filter:blur(6px)}
+  header h1{margin:0;font-size:clamp(26px,6vw,40px);line-height:1.15;font-weight:800;letter-spacing:-.02em}
+  header .sub{opacity:.93;margin-top:10px;font-size:16.5px}
+  .stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+    padding:9px 18px;border-radius:14px;font-size:13px;font-weight:600;letter-spacing:.02em;
+    backdrop-filter:blur(6px);min-width:96px}
+  .stat b{display:block;font-size:20px;line-height:1.25;letter-spacing:0}
+  .topbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
+    background:rgba(240,246,242,.88);border-bottom:1px solid rgba(226,234,229,.9)}
+  nav.tabs{max-width:1180px;margin:0 auto;padding:12px 14px;display:flex;gap:8px;flex-wrap:wrap}
+  nav.tabs a{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:999px;
+    text-decoration:none;font-weight:700;font-size:15px;color:var(--muted);background:#fff;
+    border:1px solid var(--line);box-shadow:0 2px 8px rgba(15,42,29,.05);transition:.18s}
+  nav.tabs a:hover{color:var(--green);transform:translateY(-1px);box-shadow:0 8px 18px rgba(15,42,29,.10)}
+  nav.tabs a.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;
+    border-color:transparent;box-shadow:0 8px 20px rgba(11,107,58,.30)}
+  main{max-width:1180px;margin:0 auto;padding:24px 14px 40px}
+  .intro{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px 18px;
+    margin:0 0 20px;box-shadow:var(--shadow);font-size:15.5px}
+  .intro b{color:var(--green)}
+  .intro .ien{color:var(--muted);font-size:13px;margin-top:8px;padding-top:8px;
+    border-top:1px dashed var(--line)}
+  h2{font-size:21px;margin:26px 2px 12px;color:var(--green)}
+  h2 .h2sub{color:var(--muted);font-size:13px;font-weight:600;margin-left:8px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+  .nbcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;
+    box-shadow:var(--shadow);animation:rise .4s ease both}
+  .nbtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .nbfmt{font-size:10px;font-weight:800;letter-spacing:.1em;padding:3px 9px;border-radius:999px;
+    background:#e6f4ea;color:#0b6b3a}
+  .nbfmt.doc{background:#e7efff;color:#1d4ed8}
+  .nbfmt.ppt{background:#fff1e0;color:#b45309}
+  .gwall{font-size:12px;font-weight:800;color:#8a5a00;background:#fff6dc;
+    border:1px solid #f0cf85;padding:2px 10px;border-radius:999px}
+  .nbcard h3{font-size:16.5px;line-height:1.3;margin:10px 0 6px}
+  .nbdesc{color:var(--muted);font-size:14px}
+  .nbauthor{color:var(--green);font-size:13px;font-weight:700;margin-top:5px}
+  .nbactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .nbbtn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;
+    font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:999px;
+    border:1px solid var(--line);color:var(--green);background:#fff}
+  .nbbtn:hover{box-shadow:0 6px 14px rgba(15,42,29,.10)}
+  .nbbtn.primary{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;border-color:transparent}
+  .empty{background:#fff;border:1px dashed #c9d9cf;border-radius:18px;padding:20px;
+    color:var(--muted);font-size:15px;box-shadow:var(--shadow)}
+  .filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 2px 12px}
+  .fchip{font:inherit;font-size:13px;font-weight:700;padding:6px 13px;border-radius:999px;
+    border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
+  .fchip.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;border-color:transparent}
+  .formwrap{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    box-shadow:var(--shadow);height:720px}
+  .formwrap iframe{width:100%;height:100%;border:0;display:block}
+  .formempty{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;
+    box-shadow:var(--shadow)}
+  .formempty p{color:var(--muted);font-size:14.5px;margin:6px 0 0}
+  .nbhint{font-size:13.5px;color:var(--muted);margin:10px 2px}
+  .nbhint a{color:var(--green);font-weight:700}
+  footer{text-align:center;color:var(--muted);font-size:14.5px;padding:26px 14px 48px;
+    border-top:1px solid rgba(226,234,229,.9);margin-top:28px}
+  footer strong{color:var(--green)}
+  @media (max-width:700px){
+    header{padding:34px 16px 30px}
+    .logo{width:68px;height:68px;border-radius:18px}
+    .stat{padding:8px 14px;min-width:84px}
+    .stat b{font-size:18px}
+    .formwrap{height:620px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="logo.png" alt="Moshi Co-operative University" />
+  <div class="badge">Moshi Co-operative University</div>
+  <h1>BBICT I &mdash; Notes</h1>
+  <div class="sub">Class notes &amp; group works &middot; First Semester 2026/2027</div>
+  <div class="stats">
+    <div class="stat"><b>0</b>Class Notes</div>
+    <div class="stat"><b>0</b>Group Works</div>
+    <div class="stat"><b>15</b>Vikundi</div>
+  </div>
+</header>
+
+<div class="topbar">
+<nav class="tabs">
+  <a href="index.html?v=4">&#128203; Orodha ya Wanafunzi</a>
+  <a href="timetable.html?v=4">&#128197; Timetable</a>
+  <a href="groups.html?v=4">&#128101; Vikundi (Groups)</a>
+  <a class="active" href="notes.html?v=4">&#128218; Notes</a>
+</nav>
+</div>
+<main>
+  <div class="intro">
+    <div><b>Notes &amp; group works</b> &mdash; PDF notes can be read online or downloaded. Word (DOC/DOCX) and PowerPoint (PPT/PPTX) files are available to download.</div>
+    <div class="ien">Group works show the group they came from. Files are checked before being added here.</div>
+  </div>
+
+  <h2>Class Notes <span class="h2sub"> lecture materials &amp; study notes</span></h2>
+  <div class="grid"><div class="empty">No class notes have been added yet.</div></div>
+
+  <h2>Group Works <span class="h2sub"> discussion notes submitted by groups</span></h2>
+  
+  <div class="grid" id="groupworks"><div class="empty">No group works have been uploaded yet.</div></div>
+
+  <h2>Submit Group Notes <span class="h2sub"> anyone can submit &mdash; choose your group</span></h2>
+  <div class="formempty"><b>Group notes form &mdash; setup in progress</b><p>Anyone will be able to submit discussion notes and choose their group (Group 1&ndash;15). Submissions are reviewed before they appear on this page.</p></div>
+</main>
+
+<script>
+(function(){
+  var chips=document.querySelectorAll('.fchip'), cards=document.querySelectorAll('#groupworks .nbcard');
+  for(var i=0;i<chips.length;i++){{
+    chips[i].addEventListener('click',function(){{
+      for(var k=0;k<chips.length;k++)chips[k].classList.remove('active');
+      this.classList.add('active');
+      var f=this.getAttribute('data-f');
+      for(var j=0;j<cards.length;j++){{
+        cards[j].style.display=(f==='all'||cards[j].getAttribute('data-group')===f)?'':'none';
+      }}
+    }});
+  }}
+})();
+</script>
+<footer>
+  <strong>BBICT I</strong> &middot; Moshi Co-operative University &middot; Notes &amp; Group Works
+</footer>
+</body>
+</html>
