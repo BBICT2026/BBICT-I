@@ -121,7 +121,10 @@
   .formbar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f4faf6;
     border-bottom:1px solid var(--line);color:var(--green);font-size:13px;font-weight:700}
   .fdot{width:8px;height:8px;border-radius:50%;background:var(--emerald)}
-  .formpanel iframe{display:block;width:100%;height:680px;border:0}
+  .formbody{padding:22px}
+  .formbig{font-size:18px;font-weight:800;color:var(--green);margin-bottom:6px}
+  .formbody p{color:var(--muted);font-size:14.5px;margin:0 0 18px;max-width:560px}
+  .formbody .bigbtn{max-width:320px;margin-left:auto;margin-right:auto}
   .formempty{border:1px dashed #c9d9cf;border-radius:16px;padding:20px;color:var(--muted)}
   footer{text-align:center;color:var(--muted);font-size:14.5px;padding:26px 14px 48px;
     border-top:1px solid rgba(226,234,229,.9);margin-top:10px}
@@ -152,17 +155,17 @@
   <div class="sub">Class notes &amp; group works &middot; First Semester 2026/2027</div>
   <div class="stats">
     <div class="stat"><b>0</b>Class Notes</div>
-    <div class="stat"><b>0</b>Group Works</div>
+    <div class="stat"><b>1</b>Group Works</div>
     <div class="stat"><b>15</b>Vikundi</div>
   </div>
 </header>
 
 <div class="topbar">
 <nav class="tabs">
-  <a href="index.html?v=5">&#128203; Orodha ya Wanafunzi</a>
-  <a href="timetable.html?v=5">&#128197; Timetable</a>
-  <a href="groups.html?v=5">&#128101; Vikundi (Groups)</a>
-  <a class="active" href="notes.html?v=5">&#128218; Notes</a>
+  <a href="index.html?v=6">&#128203; Orodha ya Wanafunzi</a>
+  <a href="timetable.html?v=6">&#128197; Timetable</a>
+  <a href="groups.html?v=6">&#128101; Vikundi (Groups)</a>
+  <a class="active" href="notes.html?v=6">&#128218; Notes</a>
 </nav>
 </div>
 <main>
@@ -192,10 +195,10 @@
     <div class="shead">
       <div class="sicon">GROUPS</div>
       <div class="stitle"><h2>Group Works</h2><p>Discussion notes submitted by students</p></div>
-      <span class="count">0 files</span>
+      <span class="count">1 files</span>
     </div>
-    
-    <div class="emptycard"><div class="emptymark">G1-15</div><div class="emptycopy"><b>No group works yet</b><p>Approved discussion notes will appear here with the group they came from. You can submit notes using the form below.</p></div></div>
+    <div class="filters"><button class="fchip active" data-f="all">All groups</button><button class="fchip" data-f="6">Group 6</button></div>
+    <article class="nbcard" data-group="6"><div class="nbtop"><span class="nbfmt pdf">PDF</span><span class="gwall">Group 6</span></div><h3>HISTORY OF COOPERATIVES</h3><div class="nbdesc">Co-operative Philosophy</div><div class="nbauthor">MoCU/BBICT/1539/26</div><div class="nbactions"><a class="nbbtn primary" href="notes/groups/history_of_cooperatives_g6.pdf" target="_blank" rel="noopener">Read online</a><a class="nbbtn" href="notes/groups/history_of_cooperatives_g6.pdf" download>Download &#8595;</a></div></article>
   </section>
 
   <section class="block submit" id="submit">
@@ -213,10 +216,9 @@
           <li><span class="num">3</span><div><b>Upload your file</b><p>PDF, Word or PowerPoint. Google sign-in is required.</p></div></li>
           <li><span class="num">4</span><div><b>Wait for review</b><p>Approved files appear above with a group badge.</p></div></li>
         </ol>
-        <div class="actions"><a class="bigbtn primary" href="https://forms.gle/uL5zA2uT4PR4EnUBA" target="_blank" rel="noopener">Open submission form &#8599;</a><a class="bigbtn" href="https://drive.google.com/drive/folders/1AiSEexaYiQ-s6ObW0QTdJ1cQ6c_gXm9xkzjP9wl-cib6eBfZEqjr_VoXOe0Kfoy-_KJKsMLo?usp=sharing" target="_blank" rel="noopener">Browse submitted files &#8599;</a></div>
-        <p class="fine">Files are checked before they are published on this page.</p>
+        <p class="fine">Use the button on the right to open the form. Files are checked before they are published on this page.</p>
       </aside>
-      <div class="formpanel"><div class="formbar"><span class="fdot"></span>Group notes submission form</div><iframe title="Submit group notes" src="https://docs.google.com/forms/d/e/1FAIpQLSfkrUel2bfhWZNTiqu5xwn-GSyILbzSIpGXQ55WRd1VY1UcUA/viewform?usp=send_form">Loading form&hellip;</iframe></div>
+      <div class="formpanel"><div class="formbar"><span class="fdot"></span>Submit on Google Forms</div><div class="formbody"><div class="formbig">The form opens in a new tab</div><p>Google Forms does not allow this page to show the form inside it. Click the button below to open the form. Sign in with your Google account to upload a file.</p><a class="bigbtn primary" href="https://forms.gle/uL5zA2uT4PR4EnUBA" target="_blank" rel="noopener">Open submission form &#8599;</a></div></div>
     </div>
   </section>
 </main>
