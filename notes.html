@@ -173,10 +173,10 @@
 
 <div class="topbar">
 <nav class="tabs">
-  <a href="index.html?v=15">&#128203; Orodha ya Wanafunzi</a>
-  <a href="timetable.html?v=15">&#128197; Timetable</a>
-  <a href="groups.html?v=15">&#128101; Vikundi (Groups)</a>
-  <a class="active" href="notes.html?v=15">&#128218; Notes</a>
+  <a href="index.html?v=16">&#128203; Orodha ya Wanafunzi</a>
+  <a href="timetable.html?v=16">&#128197; Timetable</a>
+  <a href="groups.html?v=16">&#128101; Vikundi (Groups)</a>
+  <a class="active" href="notes.html?v=16">&#128218; Notes</a>
 </nav>
 </div>
 <main>
@@ -213,22 +213,22 @@
 </main>
 
 <script>
-(function(){{
+(function(){
   var sel=document.getElementById('f-filter');
   if(!sel)return;
-  var state={{type:'all',group:'all',lecture:'all',format:'all'}};
-  function apply(){{
+  var state={type:'all',group:'all',lecture:'all',format:'all'};
+  function apply(){
     var o=sel.options[sel.selectedIndex];
     var kind=o?o.getAttribute('data-kind'):null;
     var val=o?o.getAttribute('data-value'):'all';
     if(!kind)return;
-    if(kind==='type'){{
-      state={{type:val,group:'all',lecture:'all',format:'all'}};
-    }} else {{
+    if(kind==='type'){
+      state={type:val,group:'all',lecture:'all',format:'all'};
+    } else {
       state[kind]=val;
-    }}
+    }
     var cards=document.querySelectorAll('#notes .nbcard');
-    for(var j=0;j<cards.length;j++){{
+    for(var j=0;j<cards.length;j++){
       var ct=cards[j].getAttribute('data-type')||'';
       var cg=cards[j].getAttribute('data-group')||'';
       var cl=cards[j].getAttribute('data-lecture')||'';
@@ -237,11 +237,11 @@
         &&(state.group==='all'||cg===state.group)
         &&(state.lecture==='all'||cl===state.lecture)
         &&(state.format==='all'||cf===state.format))?'':'none';
-    }}
-  }}
+    }
+  }
   sel.addEventListener('change',apply);
   apply();
-}})();
+})();
 </script>
 <footer>
   <strong>BBICT I</strong> &middot; Moshi Co-operative University &middot; Notes
