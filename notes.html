@@ -75,7 +75,9 @@
   .gwall{font-size:12.5px;font-weight:800;color:#8a5a00;background:#fff6dc;
     border:1px solid #f0cf85;padding:4px 13px;border-radius:999px;white-space:nowrap}
   .gwall.classbadge{color:var(--green);background:#eaf5ef;border-color:#cfe7d9}
-  .nbcard h3{font-size:15.5px;line-height:1.3;margin:10px 0 0;
+  .nbkind{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--green);margin-top:10px}
+  .nbcard h3{font-size:15.5px;line-height:1.3;margin:3px 0 0;
     display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
     overflow-wrap:anywhere}
   .nblecture{color:var(--muted);font-size:12.5px;line-height:1.35;margin-top:6px;
@@ -99,6 +101,9 @@
     max-width:190px;overflow:hidden;text-overflow:ellipsis;
     border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
   .fchip.active{background:linear-gradient(135deg,var(--green),var(--emerald));color:#fff;border-color:transparent}
+  .fselect{font:inherit;font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:999px;
+    border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;
+    max-width:190px;min-height:39px}
   .submitgrid{display:grid;grid-template-columns:310px 1fr;gap:18px;align-items:start}
   .howto{border:1px solid var(--line);border-radius:16px;background:#fbfdfc;padding:18px}
   .howto h3{font-size:16px;margin:0 0 12px;color:var(--green)}
@@ -146,6 +151,7 @@
     .nbcard{padding:13px;min-height:160px}
     .nblecture{font-size:12px}
     .fchip{max-width:150px;padding:7px 12px;font-size:12.5px}
+    .fselect{max-width:150px;font-size:12.5px;padding:7px 12px;min-height:36px}
   }
   @media (max-width:380px){
     .grid{grid-template-columns:1fr}
@@ -167,10 +173,10 @@
 
 <div class="topbar">
 <nav class="tabs">
-  <a href="index.html?v=12">&#128203; Orodha ya Wanafunzi</a>
-  <a href="timetable.html?v=12">&#128197; Timetable</a>
-  <a href="groups.html?v=12">&#128101; Vikundi (Groups)</a>
-  <a class="active" href="notes.html?v=12">&#128218; Notes</a>
+  <a href="index.html?v=13">&#128203; Orodha ya Wanafunzi</a>
+  <a href="timetable.html?v=13">&#128197; Timetable</a>
+  <a href="groups.html?v=13">&#128101; Vikundi (Groups)</a>
+  <a class="active" href="notes.html?v=13">&#128218; Notes</a>
 </nav>
 </div>
 <main>
@@ -180,8 +186,8 @@
       <div class="stitle"><h2>Notes</h2><p>Class notes and group works in one place</p></div>
       <span class="count">1 files</span>
     </div>
-    <div class="filters"><button class="fchip active" data-type="all">All notes</button><button class="fchip" data-type="class">Class Notes</button><button class="fchip" data-type="group">Group Works</button><span class="fsep"></span><button class="fchip active" data-group-filter="all">All groups</button><button class="fchip" data-group-filter="6">Group 6</button><span class="fsep"></span><button class="fchip active" data-lecture="all">All lectures</button><button class="fchip" data-lecture="Co-operative Philosophy" title="Co-operative Philosophy">Co-operative Philosophy</button></div>
-    <div class="grid"><article class="nbcard" data-type="group" data-group="6" data-lecture="Co-operative Philosophy"><div class="nbtop"><span class="nbfmt pdf">PDF</span><span class="gwall">Group 6</span></div><h3>Group Assignment</h3><div class="nblecture" title="Co-operative Philosophy">Co-operative Philosophy</div><div class="nbactions"><a class="nbbtn primary" href="https://bbict2026.github.io/BBICT-I/notes/groups/history_of_cooperatives_g6.pdf" target="_blank" rel="noopener">Read online</a><a class="nbbtn" href="https://bbict2026.github.io/BBICT-I/notes/groups/history_of_cooperatives_g6.pdf" target="_blank" rel="noopener">Download &#8595;</a></div></article></div>
+    <div class="filters"><button class="fchip active" data-type="all">All notes</button><button class="fchip" data-type="class">Class Notes</button><button class="fchip" data-type="group">Group Works</button><span class="fsep"></span><select id="f-group" class="fselect" aria-label="Filter by group"><option value="all">All groups</option><option value="6">Group 6</option></select><span class="fsep"></span><select id="f-lecture" class="fselect" aria-label="Filter by lecture"><option value="all">All lectures</option><option value="Co-operative Philosophy">Co-operative Philosophy</option></select></div>
+    <div class="grid"><article class="nbcard" data-type="group" data-group="6" data-lecture="Co-operative Philosophy"><div class="nbtop"><span class="nbfmt pdf">PDF</span><span class="gwall">Group 6</span></div><div class="nbkind">Group Assignment</div><h3>HISTORY OF COOPERATIVES</h3><div class="nblecture" title="Co-operative Philosophy">Co-operative Philosophy</div><div class="nbactions"><a class="nbbtn primary" href="https://bbict2026.github.io/BBICT-I/notes/groups/history_of_cooperatives_g6.pdf" target="_blank" rel="noopener">Read online</a><a class="nbbtn" href="https://bbict2026.github.io/BBICT-I/notes/groups/history_of_cooperatives_g6.pdf" target="_blank" rel="noopener">Download &#8595;</a></div></article></div>
   </section>
 
   <section class="block submit" id="submit">
@@ -208,28 +214,34 @@
 
 <script>
 (function(){{
+  function apply(bar){{
+    var sec=bar.closest('.block');
+    var t=bar.querySelector('.fchip.active[data-type]');
+    var g=bar.querySelector('select[id="f-group"]');
+    var l=bar.querySelector('select[id="f-lecture"]');
+    var tf=t?t.getAttribute('data-type'):'all';
+    var gf=g?g.value:'all';
+    var lf=l?l.value:'all';
+    var cards=sec.querySelectorAll('.nbcard');
+    for(var j=0;j<cards.length;j++){{
+      var ct=cards[j].getAttribute('data-type')||'';
+      var cg=cards[j].getAttribute('data-group')||'';
+      var cl=cards[j].getAttribute('data-lecture')||'';
+      cards[j].style.display=((tf==='all'||ct===tf)&&(gf==='all'||cg===gf)&&(lf==='all'||cl===lf))?'':'none';
+    }}
+  }}
   var bars=document.querySelectorAll('.filters');
   for(var i=0;i<bars.length;i++){{
     bars[i].addEventListener('click',function(e){{
-      var chip=e.target.closest('.fchip');
+      var chip=e.target.closest('.fchip[data-type]');
       if(!chip||!this.contains(chip))return;
-      var all=this.querySelectorAll('.fchip');
+      var all=this.querySelectorAll('.fchip[data-type]');
       for(var k=0;k<all.length;k++)all[k].classList.remove('active');
       chip.classList.add('active');
-      var sec=this.closest('.block');
-      var t=this.querySelector('.fchip.active[data-type]');
-      var g=this.querySelector('.fchip.active[data-group-filter]');
-      var l=this.querySelector('.fchip.active[data-lecture]');
-      var tf=t?t.getAttribute('data-type'):'all';
-      var gf=g?g.getAttribute('data-group-filter'):'all';
-      var lf=l?l.getAttribute('data-lecture'):'all';
-      var cards=sec.querySelectorAll('.nbcard');
-      for(var j=0;j<cards.length;j++){{
-        var ct=cards[j].getAttribute('data-type')||'';
-        var cg=cards[j].getAttribute('data-group')||'';
-        var cl=cards[j].getAttribute('data-lecture')||'';
-        cards[j].style.display=((tf==='all'||ct===tf)&&(gf==='all'||cg===gf)&&(lf==='all'||cl===lf))?'':'none';
-      }}
+      apply(this);
+    }});
+    bars[i].addEventListener('change',function(e){{
+      if(e.target&&e.target.tagName==='SELECT')apply(this);
     }});
   }}
 }})();
